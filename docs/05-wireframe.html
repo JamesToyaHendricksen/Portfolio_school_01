@@ -57,8 +57,22 @@
         </div>
 
         <section class="section" id="sec1">
-          <h2 class="section-title"><span class="section-icon">1</span> ワイヤーフレーム作成方法</h2>
+          <h2 class="section-title"><span class="section-icon">1</span> ワイヤーフレーム作成方針</h2>
 
+        <div class="fill-block">
+          <div class="fill-label">Figma用レイアウト設定 <span class="required">必須</span></div>
+          <div class="fill-hint">Figma上でそのまま再現できるフレーム設定とページ構成</div>
+          <div class="fill-content">
+            <p>対象サービス名：LifeShield AI</p>
+            <p>Frame：Desktop Frame</p>
+            <p>Width：1440px</p>
+            <p>Height：Auto</p>
+            <p>Grid：12 columns</p>
+            <p>Margin：80px</p>
+            <p>Gutter：24px</p>
+            <p>ページ構成：HEADER → HERO → FEATURE → RESULT → CTA → FOOTER</p>
+          </div>
+        </div>
 
         </section>
 
@@ -66,18 +80,64 @@
           <h2 class="section-title"><span class="section-icon">2</span> トップページ</h2>
 
         <div class="fill-block">
-          <div class="fill-label">トップページ ワイヤーフレーム（PC版） <span class="required">必須</span></div>
-          <div class="fill-hint">Figmaで作成したワイヤーフレームのスクリーンショットを配置</div>
+          <div class="fill-label">トップページ ワイヤーフレーム構成案 <span class="required">必須</span></div>
+          <div class="fill-hint">ユーザー指定のFigma構成に合わせたPC版トップページのセクション順</div>
           <div class="fill-content">
-            <p>（ここにワイヤーフレーム画像を配置）
-&lt;img src=&quot;../images/wireframe/top-pc.png&quot; alt=&quot;トップページ PC版 ワイヤーフレーム&quot;&gt;</p>
+            <pre style="white-space:pre-wrap;line-height:1.8;margin:0;">[HEADER / 80px]
+Logo         Nav Menu              CTA Button
+
+[HERO / 600px]
+TEXT AREA                         IMAGE
+Title                             AIセキュリティイラスト
+Text                              (PC / SNS / Shield)
+Button
+
+[FEATURE / 500px]
+タイトル：LifeShield AIの機能
+[AI詐欺検知] [メール監視] [SNS監視] [通信異常検知]
+
+[RESULT / 300px]
+50000+        120万        99%
+ユーザー数     詐欺検知     AI精度
+
+[CTA / 320px]
+今すぐAIセキュリティを始めよう
+無料でLifeShield AIを体験
+[無料で始める]
+
+[FOOTER / 220px]
+Logo
+サービス 料金 FAQ
+SNS / Twitter / LinkedIn
+© LifeShield AI</pre>
           </div>
         </div>
         <div class="fill-block">
-          <div class="fill-label">配置意図の説明 <span class="required">必須</span></div>
-          <div class="fill-hint">各セクションの配置理由とユーザーへの効果</div>
+          <div class="fill-label">セクション別の配置設計 <span class="required">必須</span></div>
+          <div class="fill-hint">各セクションの要素、推奨サイズ、配置意図をFigma向けに一覧化</div>
           <div class="fill-content">
-            <p>（各セクションの配置意図を記載）</p>
+            <table class="doc-table">
+              <thead><tr><th>セクション</th><th>配置する要素</th><th>推奨サイズ（相対比率）</th><th>配置の意図</th></tr></thead>
+              <tbody>
+                <tr class="template-row"><td>Header</td><td>LifeShield AI ロゴ、Nav（サービス・機能・料金・FAQ）、CTAボタン「無料で始める」</td><td>高さ 80px、Horizontal Auto Layout、Space between、Padding 80px</td><td>ブランド認知、主要導線、行動喚起を最上部に集約し、初回訪問でも迷わず遷移できるようにするため</td></tr>
+                <tr class="template-row"><td>Hero</td><td>左にタイトル・本文・ボタン、右にAIセキュリティイラスト（PC / SNS / Shield）</td><td>高さ 600px、12カラム中 左6カラム / 右6カラム</td><td>左で価値訴求、右でサービスの印象を視覚化し、ファーストビューで理解と記憶を両立させるため</td></tr>
+                <tr class="template-row"><td>Feature</td><td>セクションタイトル、4機能カード（AI詐欺検知、メール監視、SNS監視、通信異常検知）</td><td>高さ 500px、4 columns layout、カード 260px × 180px、Radius 12px</td><td>機能を横並びで比較しやすくし、サービス内容を短時間で把握させるため</td></tr>
+                <tr class="template-row"><td>Result</td><td>3つの数値指標（50000+ ユーザー数、120万 詐欺検知、99% AI精度）</td><td>高さ 300px、3 columns</td><td>数値で信頼性を補強し、サービス紹介の直後に安心感を与えるため</td></tr>
+                <tr class="template-row"><td>CTA</td><td>見出し、補足文、CTAボタン「無料で始める」</td><td>高さ 320px、背景グラデーション blue → purple</td><td>ページ後半で再度行動喚起し、興味を持ったユーザーを利用開始へつなげるため</td></tr>
+                <tr class="template-row"><td>Footer</td><td>ロゴ、リンク（サービス・料金・FAQ）、SNS（Twitter・LinkedIn）、コピーライト</td><td>高さ 220px</td><td>補助導線と企業情報を最下部に集約し、閲覧完了後の回遊と信頼補強を担うため</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+        <div class="fill-block">
+          <div class="fill-label">Figma制作メモ <span class="required">必須</span></div>
+          <div class="fill-hint">作成時に揃えるべきレイアウトルール</div>
+          <div class="fill-content">
+            <p>全体の構成順：HEADER → HERO → FEATURE → RESULT → CTA → FOOTER</p>
+            <p>Hero はテキスト 6 columns、画像 6 columns で左右均等に分割する。</p>
+            <p>Feature は 4 columns layout でカードを均等配置し、カード間の余白を統一する。</p>
+            <p>Header は Auto Layout を使い、Horizontal / Space between / Padding 80px で組む。</p>
+            <p>CTA セクションは blue → purple のグラデーション背景で、他セクションより強く視線を集める。</p>
           </div>
         </div>
 
