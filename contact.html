@@ -2,145 +2,105 @@
 <html lang="ja">
 <head>
   <meta charset="UTF-8">
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>お問い合わせ -  プロジェクトアーカイブ</title>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200">
-  <link rel="stylesheet" href="css/style.css">
+  <meta name="description" content="LifeShield AI の問い合わせページです。">
+  <title>Contact | LifeShield AI</title>
+  <link rel="stylesheet" href="css/lifeshield-ai-lp.css">
 </head>
 <body>
-  <button class="hamburger" aria-label="メニュー">
-    <span></span><span></span><span></span>
-  </button>
-
-  <div class="page-wrapper">
-  <aside class="sidebar" data-nav-level="root"></aside>
-
-    <main class="main-content">
-      <header class="doc-header">
-        <div class="doc-category">CONTACT</div>
-        <h1 class="doc-title">お問い合わせ</h1>
-        <div class="doc-meta">
-          <span><span class="material-symbols-outlined icon-sm">calendar_today</span> 作成日：2026-XX-XX</span>
-          <span><span class="material-symbols-outlined icon-sm">person</span> 作成者：（氏名を入力）</span>
-          <span><span class="material-symbols-outlined icon-sm">push_pin</span> Ver 1.0</span>
+  <a class="skip-link" href="#main-content">本文へ移動</a>
+  <div class="page-shell">
+    <header class="site-header" data-open="false">
+      <div class="container header-inner">
+        <a class="brand" href="index.html" aria-label="LifeShield AI トップページ">
+          <span class="brand-mark" aria-hidden="true"></span>
+          <span class="brand-name"><strong>LifeShield AI</strong><span>Personal AI Security Agent</span></span>
+        </a>
+        <nav class="site-nav" aria-label="主要ナビゲーション">
+          <a href="concept.html">Service</a>
+          <a href="features.html">Features</a>
+          <a href="pricing.html">Pricing</a>
+          <a href="support.html#faq">FAQ</a>
+        </nav>
+        <div class="header-actions">
+          <button class="mobile-nav-toggle" type="button" aria-label="メニューを開く" aria-expanded="false">≡</button>
+          <a class="button button-primary" href="contact.html" aria-current="page">Start Free</a>
         </div>
-      </header>
-
-      <div class="doc-body">
-
-
-        <section class="section">
-          <h2 class="section-title"><span class="section-icon"><span class="material-symbols-outlined">mail</span></span> 連絡先</h2>
-
-          <div class="fill-block">
-            <div class="fill-label">メールアドレス <span class="required">必須</span></div>
-            <div class="fill-hint">就職活動用のメールアドレスを記載</div>
-            <div class="fill-content"><p>example@email.com</p></div>
-          </div>
-
-        </section>
-
-        <section class="section">
-          <h2 class="section-title"><span class="section-icon"><span class="material-symbols-outlined">link</span></span> SNS・外部リンク</h2>
-
-          <div class="card-grid">
-            <div class="card">
-              <div class="card-title"><span class="material-symbols-outlined icon-sm">code</span> GitHub</div>
-              <div class="card-text">
-                <p>ソースコードを公開しています</p>
-                <p><a href="https://github.com/" target="_blank">https://github.com/（ユーザー名）</a></p>
-              </div>
-            </div>
-            <div class="card">
-              <div class="card-title"><span class="material-symbols-outlined icon-sm">tag</span> X（Twitter）</div>
-              <div class="card-text">
-                <p>学習の進捗を発信しています</p>
-                <p><a href="https://x.com/" target="_blank">@（アカウント名）</a></p>
-              </div>
-            </div>
-            <div class="card">
-              <div class="card-title"><span class="material-symbols-outlined icon-sm">article</span> Qiita / Zenn</div>
-              <div class="card-text">
-                <p>技術記事を投稿しています</p>
-                <p><a href="#" target="_blank">（URLを入力）</a></p>
-              </div>
-            </div>
-            <div class="card">
-              <div class="card-title"><span class="material-symbols-outlined icon-sm">work</span> LinkedIn</div>
-              <div class="card-text">
-                <p>ビジネスプロフィール</p>
-                <p><a href="#" target="_blank">（URLを入力）</a></p>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        <section class="section">
-          <h2 class="section-title"><span class="section-icon"><span class="material-symbols-outlined">schedule</span></span> 対応可能時間</h2>
-
-          <div class="fill-block">
-            <div class="fill-label">連絡対応について <span class="optional">任意</span></div>
-            <div class="fill-content">
-              <p><strong>対応可能時間：</strong>平日 10:00〜18:00</p>
-              <p><strong>返信目安：</strong>2〜3営業日以内</p>
-              <p>（上記を自分の状況に合わせて編集してください）</p>
-            </div>
-          </div>
-        </section>
-
-        <section class="section">
-          <h2 class="section-title"><span class="section-icon"><span class="material-symbols-outlined">edit_note</span></span> お問い合わせフォーム</h2>
-
-
-          <div class="fill-block">
-            <div class="fill-label">フォーム見本 <span class="optional">参考</span></div>
-            <div class="fill-content">
-              <form class="contact-form" onsubmit="return false;">
-                <div class="form-group">
-                  <label for="name">お名前 <span class="required">必須</span></label>
-                  <input type="text" id="name" name="name" placeholder="山田 太郎" required>
-                </div>
-                <div class="form-group">
-                  <label for="email">メールアドレス <span class="required">必須</span></label>
-                  <input type="email" id="email" name="email" placeholder="example@email.com" required>
-                </div>
-                <div class="form-group">
-                  <label for="company">会社名 <span class="optional">任意</span></label>
-                  <input type="text" id="company" name="company" placeholder="株式会社〇〇">
-                </div>
-                <div class="form-group">
-                  <label for="subject">件名 <span class="required">必須</span></label>
-                  <input type="text" id="subject" name="subject" placeholder="お問い合わせ内容" required>
-                </div>
-                <div class="form-group">
-                  <label for="message">メッセージ <span class="required">必須</span></label>
-                  <textarea id="message" name="message" rows="6" placeholder="お問い合わせ内容をご記入ください" required></textarea>
-                </div>
-                <div class="form-actions">
-                  <button type="submit" class="btn btn-primary">送信する</button>
-                </div>
-              </form>
-            </div>
-          </div>
-        </section>
-
-        <section class="section">
-          <h2 class="section-title"><span class="section-icon"><span class="material-symbols-outlined">location_on</span></span> 所在地</h2>
-
-          <div class="fill-block">
-            <div class="fill-label">所在地情報 <span class="optional">任意</span></div>
-            <div class="fill-hint">学校名や地域など、公開可能な範囲で</div>
-            <div class="fill-content">
-              <p><strong>所属：</strong>〇〇専門学校</p>
-              <p><strong>所在地：</strong>〇〇県〇〇市</p>
-            </div>
-          </div>
-        </section>
-
       </div>
-    </main>
-  </div>
+    </header>
+    <main id="main-content">
+      <section class="section page-hero">
+        <div class="container section-header">
+          <span class="section-label">Contact</span>
+          <h1>無料相談・お問い合わせ</h1>
+          <p>利用開始前の相談、機能に関する質問、導入イメージの確認などを受け付けます。</p>
+        </div>
+      </section>
 
-  <script src="js/main.js"></script>
+      <section class="section">
+        <div class="container contact-grid">
+          <aside class="contact-panel">
+            <h2>相談できる内容</h2>
+            <ul class="contact-list">
+              <li>どのプランが合うか知りたい</li>
+              <li>どのような詐欺を検知できるか確認したい</li>
+              <li>家族利用の想定を相談したい</li>
+              <li>ダッシュボードの使い方を知りたい</li>
+            </ul>
+          </aside>
+
+          <form class="contact-form" action="#" method="post">
+            <div class="form-field">
+              <label for="name">お名前</label>
+              <input class="form-input" id="name" name="name" type="text" autocomplete="name" placeholder="山田 太郎">
+            </div>
+            <div class="form-field">
+              <label for="email">メールアドレス</label>
+              <input class="form-input" id="email" name="email" type="email" autocomplete="email" placeholder="name@example.com">
+            </div>
+            <div class="form-field">
+              <label for="purpose">ご相談内容</label>
+              <select class="form-select" id="purpose" name="purpose">
+                <option>選択してください</option>
+                <option>無料トライアルについて</option>
+                <option>機能について</option>
+                <option>料金について</option>
+                <option>その他</option>
+              </select>
+            </div>
+            <div class="form-field">
+              <label for="message">お問い合わせ詳細</label>
+              <textarea class="form-textarea" id="message" name="message" placeholder="ご相談内容をご記入ください"></textarea>
+            </div>
+            <div class="form-field">
+              <label class="check-row" for="agree">
+                <input id="agree" name="agree" type="checkbox">
+                <span>プライバシーポリシーを確認し、内容に同意します。</span>
+              </label>
+            </div>
+            <button class="button button-primary" type="submit">送信する</button>
+          </form>
+        </div>
+      </section>
+    </main>
+    <footer class="site-footer">
+      <div class="container">
+        <div class="footer-panel">
+          <div class="footer-brand">
+            <a class="brand" href="index.html" aria-label="LifeShield AI フッター">
+              <span class="brand-mark" aria-hidden="true"></span>
+              <span class="brand-name"><strong>LifeShield AI</strong><span>Personal AI Security Agent</span></span>
+            </a>
+            <p>利用前の不安を解消するための相談窓口を用意しています。</p>
+          </div>
+          <div class="footer-links"><a href="concept.html">Service</a><a href="features.html">Features</a><a href="pricing.html">Pricing</a><a href="support.html#faq">FAQ</a></div>
+          <div class="footer-links"><a href="dashboard-preview.html">Dashboard Preview</a><a href="news.html">Security News</a><a href="support.html">Support</a><a href="contact.html">Contact</a></div>
+          <div class="footer-meta">© 2026 LifeShield AI</div>
+        </div>
+      </div>
+    </footer>
+  </div>
+  <script src="js/lifeshield-site.js"></script>
 </body>
 </html>
