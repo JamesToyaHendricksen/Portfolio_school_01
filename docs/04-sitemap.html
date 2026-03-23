@@ -2,6 +2,7 @@
 <html lang="ja">
 <head>
   <meta charset="UTF-8">
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>サイトマップ - プロジェクトアーカイブ</title>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200">
@@ -11,58 +12,43 @@
   <button class="hamburger" aria-label="メニュー">
     <span></span><span></span><span></span>
   </button>
-
   <div class="page-wrapper">
     <aside class="sidebar" data-nav-level="docs"></aside>
-
     <main class="main-content">
       <header class="doc-header">
         <div class="doc-category">DOCUMENT 04</div>
         <h1 class="doc-title">サイトマップ</h1>
         <div class="doc-meta">
-          <span><span class="material-symbols-outlined icon-sm">calendar_today</span> 作成日: 2026-03-16</span>
+          <span><span class="material-symbols-outlined icon-sm">calendar_today</span> 作成日: 2026-03-23</span>
           <span><span class="material-symbols-outlined icon-sm">person</span> 作成支援: Codex</span>
           <span><span class="material-symbols-outlined icon-sm">push_pin</span> Ver 1.0</span>
         </div>
       </header>
-
       <div class="doc-body">
-
         <div class="external-link-box">
-          <div class="external-link-box-title">
-            <span class="material-symbols-outlined">link</span>
-            詳細ドキュメントリンク
-          </div>
-          <div class="external-link-box-desc">
-            画面遷移図、要件定義、ワイヤーフレームなどを外部ドキュメントで管理する場合はここから参照します。
-          </div>
+          <div class="external-link-box-title"><span class="material-symbols-outlined">link</span> 詳細ドキュメントリンク</div>
+          <div class="external-link-box-desc">Googleスプレッドシートや補足資料がある場合はここから参照します。</div>
           <div class="external-link-input">
-            <input type="text" placeholder="https://docs.google.com/document/d/xxxxx" id="external-link-04">
-            <a href="#" class="link-btn" onclick="window.open(document.getElementById('external-link-04').value || 'https://docs.google.com', '_blank'); return false;">
-              <span class="material-symbols-outlined">open_in_new</span>
-              開く
-            </a>
+            <input type="text" placeholder="https://docs.google.com/spreadsheets/d/xxxxx" id="external-link-04">
+            <a href="#" class="link-btn" onclick="window.open(document.getElementById('external-link-04').value || 'https://docs.google.com', '_blank'); return false;"><span class="material-symbols-outlined">open_in_new</span> 開く</a>
           </div>
         </div>
-
         <div class="toc">
           <div class="toc-title">目次</div>
           <ol class="toc-list">
             <li><a href="#sec1">サイト構造図</a></li>
             <li><a href="#sec2">ページ一覧</a></li>
-            <li><a href="#sec3">ユーザーフロー</a></li>
+            <li><a href="#sec3">Webアプリケーション構造図</a></li>
             <li><a href="#sec4">URL設計</a></li>
           </ol>
         </div>
-
         <section class="section" id="sec1">
           <h2 class="section-title"><span class="section-icon">1</span> サイト構造図</h2>
-
-          <div class="fill-block">
-            <div class="fill-label">Webサイト構造図 <span class="required">必須</span></div>
-            <div class="fill-hint">トップページから各ページへ遷移する構造をテキストベースのツリー形式で整理</div>
-            <div class="fill-content">
-              <pre style="white-space:pre-wrap;line-height:1.8;margin:0;">トップページ
+          <div class="fill-block completed">
+            <div class="fill-label">Webサイトの構造図 <span class="required">必須</span></div>
+            <div class="fill-hint">LifeShield AI の情報設計をテキストベースのツリーで整理したもの</div>
+            <div class="fill-content ascii-diagram">
+              <pre>トップページ
 ├── サービス概要
 │   ├── コンセプト「個人専用SOC」
 │   ├── キャッチコピー「AIが守る日常」
@@ -72,7 +58,7 @@
 │   ├── SNS監視
 │   ├── 行動学習型パーソナライズ
 │   └── 危険アラート通知
-├── ダッシュボード
+├── ダッシュボード紹介
 │   ├── 危険イベント一覧
 │   ├── 検知詳細
 │   ├── 推奨対応ガイド
@@ -84,186 +70,128 @@
 ├── お知らせ・セキュリティ情報
 │   ├── 最新注意喚起
 │   ├── アップデート情報
-│   └── よくある被害事例
+│   └── 被害事例
 └── サポート
     ├── FAQ
     ├── お問い合わせ
     └── プライバシー・利用規約</pre>
             </div>
           </div>
-
-          <div class="fill-block">
-            <div class="fill-label">Webアプリケーション構造図 <span class="required">必須</span></div>
-            <div class="fill-hint">LifeShield AI の管理システム（Spring Bootアプリ）の画面構造。ログイン前とログイン後で分けて整理</div>
+          <div class="info-box info"><strong>サイト概要</strong>LifeShield AI は、AIが個人のデジタル行動を学習し、詐欺・不審メール・SNS上の異常を先回りで検知する個人向けセキュリティサービスです。</div>
+        </section>
+        <section class="section" id="sec2">
+          <h2 class="section-title"><span class="section-icon">2</span> ページ一覧</h2>
+          <div class="fill-block completed">
+            <div class="fill-label">Webサイトページ一覧 <span class="required">必須</span></div>
+            <table class="doc-table">
+              <thead><tr><th>No.</th><th>ページ名</th><th>ページの目的</th><th>主要コンテンツ</th></tr></thead>
+              <tbody>
+                <tr><td>1</td><td>トップページ</td><td>サービスの全体像を短時間で伝え、各詳細ページへ誘導する</td><td>ヒーロー、概要、主要機能、CTA</td></tr>
+                <tr><td>2</td><td>サービス概要</td><td>コンセプトと提供価値を理解してもらう</td><td>個人専用SOC、ターゲット、導入メリット</td></tr>
+                <tr><td>3</td><td>機能紹介</td><td>主要機能を分かりやすく説明する</td><td>AI詐欺検知、メール監視、SNS保護、通信異常検知</td></tr>
+                <tr><td>4</td><td>ダッシュボード紹介</td><td>利用イメージを具体的に示す</td><td>危険イベント一覧、検知詳細、推奨対応、履歴</td></tr>
+                <tr><td>5</td><td>料金・導入案内</td><td>利用開始判断に必要な情報を提供する</td><td>プラン比較、導入手順、対応環境</td></tr>
+                <tr><td>6</td><td>お知らせ・セキュリティ情報</td><td>注意喚起と最新情報を継続的に伝える</td><td>注意喚起、アップデート、被害事例</td></tr>
+                <tr><td>7</td><td>サポート</td><td>不安を解消し、問い合わせ導線を提供する</td><td>FAQ、お問い合わせ、プライバシー、利用規約</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+        <section class="section" id="sec3">
+          <h2 class="section-title"><span class="section-icon">3</span> Webアプリケーション構造図</h2>
+          <div class="fill-block completed">
+            <div class="fill-label">Spring Bootアプリの画面構造図 <span class="required">必須</span></div>
+            <div class="fill-hint">ログイン前とログイン後で分けた管理画面構造</div>
             <div class="fill-content">
-              <p>システムの概要: LifeShield AI の管理システムは、個人ユーザーの検知イベント、通知履歴、監視設定、アカウント情報を管理する Spring Boot ベースのWebアプリケーション。</p>
-              <p>主な機能: CRUD、ログイン、検索、通知設定、危険イベント管理、レポート確認。</p>
-              <pre style="white-space:pre-wrap;line-height:1.8;margin:12px 0 0;">ログイン前
+              <p>システム概要: LifeShield AI の管理システムは、危険イベント管理、監視設定、レポート確認を行う Spring Boot ベースのWebアプリケーションです。</p>
+              <p>主な機能: CRUD、ログイン、検索、危険イベント管理、監視設定、レポート確認、アカウント管理。</p>
+              <div class="ascii-diagram" style="margin-top:16px;"><pre>ログイン前
 ├── ログイン画面
-│   ├── メールアドレス入力
-│   ├── パスワード入力
-│   └── ログイン実行
 ├── パスワード再設定
-│   ├── メールアドレス確認
-│   └── 再設定メール送信
-└── 利用案内
-    ├── システム概要
-    ├── 主な機能
-    └── お問い合わせ
+├── ログイン補助説明
+└── お問い合わせ
 
 ログイン後
 ├── ダッシュボード
-│   ├── 危険イベント一覧
-│   ├── 危険度サマリー
-│   ├── 通知一覧
-│   └── 最新アラート
+│   ├── 危険イベントサマリー
+│   ├── 最新アラート
+│   └── レポート概要
 ├── 危険イベント管理
 │   ├── 一覧表示
 │   ├── 詳細表示
-│   ├── 検索
 │   ├── 新規登録
 │   ├── 編集
-│   └── 削除
+│   ├── 削除
+│   └── 検索
 ├── 監視設定管理
 │   ├── SNS監視設定
-│   ├── 通知設定
-│   ├── 学習データ設定
-│   └── 更新
+│   ├── 通信監視設定
+│   └── 学習データ設定
 ├── レポート管理
 │   ├── 履歴一覧
-│   ├── 条件検索
-│   └── 月次レポート確認
+│   ├── 危険分析
+│   └── 月次レポート
 └── アカウント管理
     ├── プロフィール表示
-    ├── プロフィール編集
-    ├── パスワード変更
-    └── ログアウト</pre>
+    ├── プロフィール更新
+    └── ログアウト</pre></div>
             </div>
           </div>
         </section>
-
-        <section class="section" id="sec2">
-          <h2 class="section-title"><span class="section-icon">2</span> ページ一覧</h2>
-
-          <div class="fill-block">
-            <div class="fill-label">Webサイトページ一覧 <span class="required">必須</span></div>
-            <table class="doc-table">
-              <thead><tr><th>No.</th><th>ページ名</th><th>ページの役割</th><th>主なコンテンツ</th></tr></thead>
-              <tbody>
-                <tr class="template-row"><td>1</td><td>トップページ</td><td>サービス全体の価値を短時間で伝え、各詳細ページへ誘導する</td><td>ヒーロー、サービス概要、主要機能、CTA</td></tr>
-                <tr class="template-row"><td>2</td><td>サービス概要</td><td>LifeShield AI のコンセプトと提供価値を理解してもらう</td><td>個人専用SOC、ターゲット、導入メリット</td></tr>
-                <tr class="template-row"><td>3</td><td>機能紹介</td><td>主要機能を整理して信頼感を高める</td><td>AI詐欺検知、SNS監視、行動学習、通知機能</td></tr>
-                <tr class="template-row"><td>4</td><td>ダッシュボード</td><td>利用イメージを具体化し、PoCの中核画面を示す</td><td>危険イベント一覧、検知詳細、推奨対応、履歴</td></tr>
-                <tr class="template-row"><td>5</td><td>料金・導入案内</td><td>プラン比較と利用開始までの流れを説明する</td><td>料金表、導入手順、対応環境</td></tr>
-                <tr class="template-row"><td>6</td><td>お知らせ・セキュリティ情報</td><td>継続的な注意喚起と更新情報を届ける</td><td>最新注意喚起、アップデート、被害事例</td></tr>
-                <tr class="template-row"><td>7</td><td>サポート</td><td>利用前後の不安を解消し問い合わせ導線を持たせる</td><td>FAQ、お問い合わせ、利用規約、プライバシー</td></tr>
-              </tbody>
-            </table>
-          </div>
-
-          <div class="fill-block">
-            <div class="fill-label">Webアプリ画面一覧 <span class="required">必須</span></div>
-            <table class="doc-table">
-              <thead><tr><th>No.</th><th>画面名</th><th>画面の役割</th><th>主な機能</th></tr></thead>
-              <tbody>
-                <tr class="template-row"><td>1</td><td>ログイン画面</td><td>ユーザー認証を行い管理機能へ遷移する</td><td>メールアドレス、パスワード入力、ログイン</td></tr>
-                <tr class="template-row"><td>2</td><td>ダッシュボード</td><td>検知状況を一覧で把握する中心画面</td><td>危険イベント一覧、危険度表示、通知サマリー</td></tr>
-                <tr class="template-row"><td>3</td><td>危険イベント管理画面</td><td>イベント情報を CRUD と検索で管理する</td><td>一覧表示、詳細表示、新規登録、編集、削除、検索</td></tr>
-                <tr class="template-row"><td>4</td><td>監視設定管理画面</td><td>監視条件と通知条件を設定する</td><td>SNS監視設定、通知設定、学習データ更新</td></tr>
-                <tr class="template-row"><td>5</td><td>レポート管理画面</td><td>過去の検知履歴と集計結果を確認する</td><td>履歴一覧、条件検索、月次レポート確認</td></tr>
-                <tr class="template-row"><td>6</td><td>アカウント管理画面</td><td>利用者情報と認証情報を管理する</td><td>プロフィール表示、編集、パスワード変更、ログアウト</td></tr>
-              </tbody>
-            </table>
-          </div>
-        </section>
-
-        <section class="section" id="sec3">
-          <h2 class="section-title"><span class="section-icon">3</span> ユーザーフロー</h2>
-
-          <div class="fill-block">
-            <div class="fill-label">メインシナリオ <span class="required">必須</span></div>
-            <div class="fill-hint">代表的なユーザーがサービス理解から利用開始まで至る流れ</div>
-            <div class="fill-content">
-              <p>トップページでサービスの価値を把握する。</p>
-              <p>機能紹介で AI詐欺検知 と SNS監視 の仕組みを理解する。</p>
-              <p>ダッシュボード紹介で実際の利用イメージを確認する。</p>
-              <p>料金・導入案内でプランと対応環境を確認する。</p>
-              <p>利用開始後はログインし、ダッシュボードから危険イベントを確認して必要に応じて検索、編集、設定変更を実行する。</p>
-            </div>
-          </div>
-
-          <div class="fill-block">
-            <div class="fill-label">サブシナリオ <span class="optional">任意</span></div>
-            <div class="fill-hint">既存ユーザーや不安を持つ訪問者の補助導線</div>
-            <div class="fill-content">
-              <p>セキュリティ被害への不安が強いユーザーは、お知らせ・セキュリティ情報から事例を確認し、FAQ経由で問い合わせへ進む。</p>
-              <p>既存ユーザーはログイン後にレポート管理で過去イベントを振り返り、監視設定管理画面で通知条件を調整する。</p>
-            </div>
-          </div>
-        </section>
-
         <section class="section" id="sec4">
           <h2 class="section-title"><span class="section-icon">4</span> URL設計</h2>
-
-          <div class="fill-block">
+          <div class="fill-block completed">
             <div class="fill-label">機能一覧 <span class="required">必須</span></div>
-            <div class="fill-hint">企画提案書で定義した主要機能に基づいてURLを設計</div>
-            <div class="fill-content">
-              <p>AI詐欺検知、SNS監視、行動学習型パーソナライズ、危険アラート通知、危険イベント管理、レポート確認、ログイン。</p>
-            </div>
+            <div class="fill-content"><p>AI詐欺検知、SNS監視、行動学習型パーソナライズ、危険アラート通知、危険イベント管理、レポート確認、ログイン。</p></div>
           </div>
-
-          <div class="fill-block">
+          <div class="fill-block completed">
             <div class="fill-label">Webサイト部分 URL一覧 <span class="required">必須</span></div>
             <table class="doc-table">
               <thead><tr><th>URL</th><th>HTTPメソッド</th><th>画面/機能</th><th>説明</th></tr></thead>
               <tbody>
-                <tr class="template-row"><td>/</td><td>GET</td><td>トップページ</td><td>サービス全体の入口ページ</td></tr>
-                <tr class="template-row"><td>/concept</td><td>GET</td><td>サービス概要</td><td>コンセプトと提供価値を説明</td></tr>
-                <tr class="template-row"><td>/features</td><td>GET</td><td>機能紹介</td><td>AI詐欺検知、SNS監視、行動学習型パーソナライズを紹介</td></tr>
-                <tr class="template-row"><td>/dashboard-preview</td><td>GET</td><td>ダッシュボード紹介</td><td>利用イメージと主要画面を紹介</td></tr>
-                <tr class="template-row"><td>/pricing</td><td>GET</td><td>料金・導入案内</td><td>プラン比較と導入手順を表示</td></tr>
-                <tr class="template-row"><td>/news</td><td>GET</td><td>お知らせ・セキュリティ情報</td><td>最新注意喚起やアップデート情報を表示</td></tr>
-                <tr class="template-row"><td>/support</td><td>GET</td><td>サポート</td><td>FAQ、お問い合わせ、規約関連を表示</td></tr>
-                <tr class="template-row"><td>/contact</td><td>GET</td><td>お問い合わせフォーム</td><td>問い合わせ入力画面を表示</td></tr>
-                <tr class="template-row"><td>/contact</td><td>POST</td><td>お問い合わせ送信</td><td>問い合わせ内容を送信する</td></tr>
+                <tr><td>/</td><td>GET</td><td>トップページ</td><td>サービス全体を紹介する入口ページ</td></tr>
+                <tr><td>/concept</td><td>GET</td><td>サービス概要</td><td>コンセプトと提供価値を説明する</td></tr>
+                <tr><td>/features</td><td>GET</td><td>機能紹介</td><td>主要機能を一覧で見せる</td></tr>
+                <tr><td>/dashboard-preview</td><td>GET</td><td>ダッシュボード紹介</td><td>利用イメージを説明する</td></tr>
+                <tr><td>/pricing</td><td>GET</td><td>料金・導入案内</td><td>プランと導入方法を案内する</td></tr>
+                <tr><td>/news</td><td>GET</td><td>お知らせ・セキュリティ情報</td><td>注意喚起や更新情報を掲載する</td></tr>
+                <tr><td>/support</td><td>GET</td><td>サポート</td><td>FAQや問い合わせ導線を提供する</td></tr>
+                <tr><td>/contact</td><td>GET</td><td>お問い合わせフォーム</td><td>入力画面を表示する</td></tr>
+                <tr><td>/contact</td><td>POST</td><td>お問い合わせ送信</td><td>問い合わせ内容を送信する</td></tr>
               </tbody>
             </table>
           </div>
-
-          <div class="fill-block">
+          <div class="fill-block completed">
             <div class="fill-label">Spring Bootアプリ部分 URL一覧 <span class="required">必須</span></div>
             <table class="doc-table">
               <thead><tr><th>URL</th><th>HTTPメソッド</th><th>画面/機能</th><th>説明</th></tr></thead>
               <tbody>
-                <tr class="template-row"><td>/login</td><td>GET</td><td>ログイン画面</td><td>ユーザー認証画面を表示</td></tr>
-                <tr class="template-row"><td>/sessions</td><td>POST</td><td>ログイン処理</td><td>認証を実行してセッションを作成</td></tr>
-                <tr class="template-row"><td>/sessions/current</td><td>DELETE</td><td>ログアウト処理</td><td>現在のセッションを削除してログアウトする</td></tr>
-                <tr class="template-row"><td>/password-resets/new</td><td>GET</td><td>パスワード再設定画面</td><td>再設定入力画面を表示</td></tr>
-                <tr class="template-row"><td>/password-resets</td><td>POST</td><td>パスワード再設定依頼</td><td>再設定メール送信を受け付ける</td></tr>
-                <tr class="template-row"><td>/dashboard</td><td>GET</td><td>ダッシュボード</td><td>危険イベントと通知サマリーを表示</td></tr>
-                <tr class="template-row"><td>/security-events</td><td>GET</td><td>危険イベント一覧</td><td>危険イベントを一覧表示し検索条件も受け付ける</td></tr>
-                <tr class="template-row"><td>/security-events/new</td><td>GET</td><td>危険イベント新規登録画面</td><td>新規登録フォームを表示</td></tr>
-                <tr class="template-row"><td>/security-events</td><td>POST</td><td>危険イベント登録</td><td>新規イベントを作成する</td></tr>
-                <tr class="template-row"><td>/security-events/{id}</td><td>GET</td><td>危険イベント詳細</td><td>個別イベントの詳細を表示</td></tr>
-                <tr class="template-row"><td>/security-events/{id}/edit</td><td>GET</td><td>危険イベント編集画面</td><td>編集フォームを表示</td></tr>
-                <tr class="template-row"><td>/security-events/{id}</td><td>PUT</td><td>危険イベント更新</td><td>対象イベントを更新する</td></tr>
-                <tr class="template-row"><td>/security-events/{id}</td><td>DELETE</td><td>危険イベント削除</td><td>対象イベントを削除する</td></tr>
-                <tr class="template-row"><td>/monitoring-settings</td><td>GET</td><td>監視設定一覧/表示</td><td>SNS監視設定、通知設定、学習データ設定を表示</td></tr>
-                <tr class="template-row"><td>/monitoring-settings/{id}</td><td>PUT</td><td>監視設定更新</td><td>監視条件や通知条件を更新する</td></tr>
-                <tr class="template-row"><td>/reports</td><td>GET</td><td>レポート一覧</td><td>履歴一覧と検索結果を表示</td></tr>
-                <tr class="template-row"><td>/reports/{id}</td><td>GET</td><td>レポート詳細</td><td>月次レポートや集計結果の詳細を表示</td></tr>
-                <tr class="template-row"><td>/accounts/{id}</td><td>GET</td><td>アカウント詳細</td><td>プロフィールと認証情報を表示</td></tr>
-                <tr class="template-row"><td>/accounts/{id}</td><td>PUT</td><td>アカウント更新</td><td>プロフィール情報を更新する</td></tr>
+                <tr><td>/login</td><td>GET</td><td>ログイン画面</td><td>ログイン入力画面を表示する</td></tr>
+                <tr><td>/sessions</td><td>POST</td><td>ログイン実行</td><td>認証してセッションを開始する</td></tr>
+                <tr><td>/sessions/current</td><td>DELETE</td><td>ログアウト</td><td>現在のセッションを終了する</td></tr>
+                <tr><td>/password-resets/new</td><td>GET</td><td>パスワード再設定画面</td><td>再設定用入力画面を表示する</td></tr>
+                <tr><td>/password-resets</td><td>POST</td><td>パスワード再設定申請</td><td>再設定メール送信を受け付ける</td></tr>
+                <tr><td>/dashboard</td><td>GET</td><td>ダッシュボード</td><td>危険イベントと要約を表示する</td></tr>
+                <tr><td>/security-events</td><td>GET</td><td>危険イベント一覧</td><td>イベントを一覧表示し検索も受け付ける</td></tr>
+                <tr><td>/security-events/new</td><td>GET</td><td>危険イベント新規作成画面</td><td>登録用フォームを表示する</td></tr>
+                <tr><td>/security-events</td><td>POST</td><td>危険イベント作成</td><td>新しいイベントを保存する</td></tr>
+                <tr><td>/security-events/{id}</td><td>GET</td><td>危険イベント詳細</td><td>個別イベントの詳細を表示する</td></tr>
+                <tr><td>/security-events/{id}/edit</td><td>GET</td><td>危険イベント編集画面</td><td>編集フォームを表示する</td></tr>
+                <tr><td>/security-events/{id}</td><td>PUT</td><td>危険イベント更新</td><td>イベント内容を更新する</td></tr>
+                <tr><td>/security-events/{id}</td><td>DELETE</td><td>危険イベント削除</td><td>イベントを削除する</td></tr>
+                <tr><td>/monitoring-settings</td><td>GET</td><td>監視設定一覧</td><td>監視設定を表示する</td></tr>
+                <tr><td>/monitoring-settings/{id}</td><td>PUT</td><td>監視設定更新</td><td>監視条件を更新する</td></tr>
+                <tr><td>/reports</td><td>GET</td><td>レポート一覧</td><td>レポートを一覧表示する</td></tr>
+                <tr><td>/reports/{id}</td><td>GET</td><td>レポート詳細</td><td>特定レポートを表示する</td></tr>
+                <tr><td>/accounts/{id}</td><td>GET</td><td>アカウント詳細</td><td>プロフィール情報を表示する</td></tr>
+                <tr><td>/accounts/{id}</td><td>PUT</td><td>アカウント更新</td><td>プロフィールを更新する</td></tr>
               </tbody>
             </table>
           </div>
         </section>
-
       </div>
     </main>
   </div>
-
   <script src="../js/main.js"></script>
 </body>
 </html>
