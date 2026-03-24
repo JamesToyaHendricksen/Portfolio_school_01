@@ -30,4 +30,4 @@ https://example.github.io/your-repository-name/
 - バックエンド実装を含む実用的な機能追加
 
 ## Author
-Your Name
+Toya Toyoda
