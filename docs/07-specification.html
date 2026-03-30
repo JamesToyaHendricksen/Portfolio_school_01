@@ -63,14 +63,41 @@
           <div class="fill-label">システムの目的 <span class="required">必須</span></div>
           <div class="fill-hint">このシステムが解決する課題と提供する価値</div>
           <div class="fill-content">
-            <p>（システムの目的を記載）</p>
+            <p>LifeShield AI の管理システムは、個人PCユーザーが利用し、危険イベントの確認、監視設定、レポート閲覧を行える仕組みです。AIによる検知結果を分かりやすく整理し、安心してデジタル生活を送れる価値を提供します。</p>
           </div>
         </div>
         <div class="fill-block">
           <div class="fill-label">システム構成図 <span class="required">必須</span></div>
           <div class="fill-hint">フロントエンド ↔ バックエンド ↔ データベースの関係を図示</div>
           <div class="fill-content">
-            <p>（システム構成図を記載）</p>
+            <pre style="white-space:pre-wrap;line-height:1.8;margin:0;">[ユーザー]
+   ↓
+[ブラウザ]
+   ↓ HTTPリクエスト
+[フロントエンド]
+HTML / CSS / JavaScript
+(Thymeleaf)
+   ↓
+[Spring Boot]
+   ↓
+[Controller]
+   ↓
+[Service]
+   ↓
+[Repository]
+   ↓
+[データベース]
+MySQL / H2
+
+データの流れ
+1. ユーザーがブラウザで操作する
+2. ブラウザから Spring Boot へリクエストを送る
+3. Controller がリクエストを受け取る
+4. Service が業務処理を行う
+5. Repository がデータベースへアクセスする
+6. データベースの結果を Repository → Service → Controller の順で返す
+7. Thymeleaf で画面を生成し、ブラウザへレスポンスを返す
+8. ブラウザに結果が表示される</pre>
           </div>
         </div>
 
@@ -84,16 +111,23 @@
         <table class="doc-table">
           <thead><tr><th>No.</th><th>機能名</th><th>概要</th><th>対応画面</th><th>優先度</th></tr></thead>
           <tbody>
-          <tr class="template-row"><td>F-001</td><td>（ログイン）</td><td>（メール/パスワードで認証）</td><td>（ログイン画面）</td><td><span class="badge badge-must">Must</span></td></tr>
-          <tr class="template-row"><td>F-002</td><td>（一覧表示）</td><td>（データの一覧表示・ページネーション）</td><td>（一覧画面）</td><td><span class="badge badge-must">Must</span></td></tr>
-          <tr class="template-row"><td>F-003</td><td>（新規登録）</td><td>（フォームから新規データ登録）</td><td>（登録画面）</td><td><span class="badge badge-must">Must</span></td></tr>
-          <tr class="template-row"><td>F-004</td><td>（詳細表示）</td><td>（データの詳細情報表示）</td><td>（詳細画面）</td><td><span class="badge badge-must">Must</span></td></tr>
-          <tr class="template-row"><td>F-005</td><td>（編集）</td><td>（既存データの更新）</td><td>（編集画面）</td><td><span class="badge badge-must">Must</span></td></tr>
-          <tr class="template-row"><td>F-006</td><td>（削除）</td><td>（データの削除・確認ダイアログ）</td><td>（一覧画面）</td><td><span class="badge badge-must">Must</span></td></tr>
-          <tr class="template-row"><td>F-007</td><td>（検索）</td><td>（キーワード・条件検索）</td><td>（一覧画面）</td><td><span class="badge badge-should">Should</span></td></tr>
-          <tr class="template-row"><td>F-008</td><td>（ソート）</td><td>（カラムクリックでの並び替え）</td><td>（一覧画面）</td><td><span class="badge badge-should">Should</span></td></tr>
-          <tr class="template-row"><td>F-009</td><td>（CSV出力）</td><td>（データのCSVエクスポート）</td><td>（一覧画面）</td><td><span class="badge badge-could">Could</span></td></tr>
-          <tr class="template-row"><td>…</td><td>…</td><td>…</td><td>…</td><td>…</td></tr>
+          <tr><td>F-001</td><td>ログイン</td><td>管理者と一般ユーザーがメールアドレスとパスワードで認証する</td><td>ログイン画面</td><td><span class="badge badge-must">Must</span></td></tr>
+          <tr><td>F-002</td><td>ログアウト</td><td>ログイン中のセッションを終了する</td><td>ヘッダー、ダッシュボード</td><td><span class="badge badge-must">Must</span></td></tr>
+          <tr><td>F-003</td><td>危険イベント一覧表示</td><td>検知された危険イベントを一覧で確認する</td><td>危険イベント一覧画面</td><td><span class="badge badge-must">Must</span></td></tr>
+          <tr><td>F-004</td><td>危険イベント詳細表示</td><td>危険イベントの内容、危険理由、推奨対応を確認する</td><td>危険イベント詳細画面</td><td><span class="badge badge-must">Must</span></td></tr>
+          <tr><td>F-005</td><td>危険イベント新規登録</td><td>管理者が危険イベントを登録する</td><td>危険イベント登録画面</td><td><span class="badge badge-must">Must</span></td></tr>
+          <tr><td>F-006</td><td>危険イベント編集</td><td>管理者が既存の危険イベント情報を更新する</td><td>危険イベント編集画面</td><td><span class="badge badge-must">Must</span></td></tr>
+          <tr><td>F-007</td><td>危険イベント削除</td><td>管理者が不要な危険イベントを削除する</td><td>危険イベント一覧画面</td><td><span class="badge badge-must">Must</span></td></tr>
+          <tr><td>F-008</td><td>監視設定更新</td><td>ユーザーがメール、SNS、通信の監視設定を変更する</td><td>監視設定画面</td><td><span class="badge badge-must">Must</span></td></tr>
+          <tr><td>F-009</td><td>レポート閲覧</td><td>一般ユーザーが検知結果や履歴レポートを閲覧する</td><td>レポート一覧・詳細画面</td><td><span class="badge badge-must">Must</span></td></tr>
+          <tr><td>F-010</td><td>入力バリデーション</td><td>必須項目、形式、文字数などをチェックし不正入力を防ぐ</td><td>各登録・編集画面</td><td><span class="badge badge-must">Must</span></td></tr>
+          <tr><td>F-011</td><td>危険イベント検索</td><td>キーワードや条件で危険イベントを絞り込む</td><td>危険イベント一覧画面</td><td><span class="badge badge-should">Should</span></td></tr>
+          <tr><td>F-012</td><td>ソート</td><td>日付、危険度、状態などで並び替える</td><td>危険イベント一覧画面</td><td><span class="badge badge-should">Should</span></td></tr>
+          <tr><td>F-013</td><td>ページネーション</td><td>一覧データを複数ページに分けて表示する</td><td>危険イベント一覧画面</td><td><span class="badge badge-should">Should</span></td></tr>
+          <tr><td>F-014</td><td>レポート検索</td><td>過去のレポートを条件指定で検索する</td><td>レポート一覧画面</td><td><span class="badge badge-should">Should</span></td></tr>
+          <tr><td>F-015</td><td>CSV出力</td><td>危険イベントやレポートをCSV形式で出力する</td><td>危険イベント一覧画面、レポート一覧画面</td><td><span class="badge badge-could">Could</span></td></tr>
+          <tr><td>F-016</td><td>ファイルアップロード</td><td>管理者が参考資料や添付ファイルを登録する</td><td>危険イベント登録・編集画面</td><td><span class="badge badge-could">Could</span></td></tr>
+          <tr><td>F-017</td><td>メール通知</td><td>危険イベント検知時にユーザーへ通知メールを送る</td><td>通知設定画面、システム処理</td><td><span class="badge badge-could">Could</span></td></tr>
           </tbody>
         </table>
 
@@ -107,7 +141,60 @@
           <div class="fill-label">画面遷移図 <span class="required">必須</span></div>
           <div class="fill-hint">各画面間の遷移関係を図示</div>
           <div class="fill-content">
-            <p>（画面遷移図を記載）</p>
+            <pre style="white-space:pre-wrap;line-height:1.8;margin:0;">管理システム用の画面遷移図
+
+【ログイン前】
+ログイン画面
+  ├─「ログイン」→ ダッシュボード
+  └─「パスワード再設定」→ パスワード再設定画面
+
+パスワード再設定画面
+  └─「戻る」→ ログイン画面
+
+
+【ログイン後】
+ダッシュボード
+  ├─「危険イベントを見る」→ 危険イベント一覧画面
+  ├─「レポートを見る」→ レポート一覧画面
+  ├─「監視設定」→ 監視設定画面
+  └─「ログアウト」→ ログイン画面
+
+危険イベント一覧画面
+  ├─「詳細」→ 危険イベント詳細画面
+  ├─「新規登録」→ 危険イベント登録画面
+  ├─「検索」→ 危険イベント一覧画面
+  ├─「並び替え」→ 危険イベント一覧画面
+  ├─「ページ切替」→ 危険イベント一覧画面
+  └─「ダッシュボードへ戻る」→ ダッシュボード
+
+危険イベント登録画面
+  ├─「保存」→ 危険イベント一覧画面
+  ├─「キャンセル」→ 危険イベント一覧画面
+  └─「ファイルアップロード」→ 危険イベント登録画面
+
+危険イベント詳細画面
+  ├─「編集」→ 危険イベント編集画面
+  ├─「削除」→ 危険イベント一覧画面
+  └─「一覧へ戻る」→ 危険イベント一覧画面
+
+危険イベント編集画面
+  ├─「更新」→ 危険イベント詳細画面
+  ├─「キャンセル」→ 危険イベント詳細画面
+  └─「ファイルアップロード」→ 危険イベント編集画面
+
+監視設定画面
+  ├─「保存」→ ダッシュボード
+  └─「戻る」→ ダッシュボード
+
+レポート一覧画面
+  ├─「詳細」→ レポート詳細画面
+  ├─「検索」→ レポート一覧画面
+  ├─「CSV出力」→ CSVダウンロード
+  └─「ダッシュボードへ戻る」→ ダッシュボード
+
+レポート詳細画面
+  ├─「一覧へ戻る」→ レポート一覧画面
+  └─「CSV出力」→ CSVダウンロード</pre>
           </div>
         </div>
 
