@@ -5,7 +5,7 @@
 自己紹介、制作物、スキル情報をまとめ、閲覧者が自分の活動内容を把握しやすい構成を目指しました。
 
 ## URL
-https://example.github.io/your-repository-name/
+https://jamestoyahendricksen.github.io/Portfolio_school_01/
 
 ## 使用技術
 - HTML
