@@ -2,6 +2,8 @@
   const header = document.querySelector('.site-header');
   const toggle = document.querySelector('.mobile-nav-toggle');
   const navLinks = document.querySelectorAll('.site-nav a');
+  const contactForm = document.querySelector('.contact-form');
+  const formStatus = document.querySelector('.form-status');
 
   if (header && toggle) {
     toggle.addEventListener('click', () => {
@@ -18,6 +20,13 @@
         }
       });
     });
+
+    window.addEventListener('resize', () => {
+      if (window.innerWidth >= 769) {
+        header.setAttribute('data-open', 'false');
+        toggle.setAttribute('aria-expanded', 'false');
+      }
+    });
   }
 
   document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
@@ -30,4 +39,12 @@
       target.scrollIntoView({ behavior: 'smooth', block: 'start' });
     });
   });
+
+  if (contactForm && formStatus) {
+    contactForm.addEventListener('submit', (event) => {
+      event.preventDefault();
+      formStatus.classList.add('is-visible');
+      contactForm.reset();
+    });
+  }
 })();
