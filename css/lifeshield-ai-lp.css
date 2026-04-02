@@ -87,7 +87,7 @@ button { cursor: pointer; }
   z-index: 40;
   border-bottom: 1px solid rgba(47, 111, 237, 0.08);
   backdrop-filter: blur(18px);
-  background: rgba(247, 250, 253, 0.76);
+  background: rgba(247, 250, 253, 0.62);
 }
 
 .header-inner {
