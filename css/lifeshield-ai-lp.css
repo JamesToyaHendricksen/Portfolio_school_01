@@ -303,6 +303,16 @@ button { cursor: pointer; }
 }
 
 .hero-copy p { max-width: 36rem; }
+.jp-ai {
+  font-family: 'Noto Sans JP', sans-serif !important;
+  display: inline-block;
+  font-size: 1.22em !important;
+  font-weight: 900;
+  line-height: 0.84;
+  letter-spacing: -0.1em;
+  transform: translateY(0.08em);
+  transform-origin: left bottom;
+}
 .hero-actions { display: flex; flex-direction: column; gap: 12px; margin-top: 28px; }
 .hero-points { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 24px; }
 .hero-points span {
@@ -537,7 +547,12 @@ button { cursor: pointer; }
 }
 
 .visual-badge span { display: block; font-size: 0.76rem; color: rgba(255, 255, 255, 0.72); }
-.visual-badge strong { font-family: 'Space Grotesk', sans-serif; font-size: 1.9rem; line-height: 1; }
+.visual-badge strong {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 1.9rem;
+  line-height: 1;
+  color: #e2544c;
+}
 
 .grid-4, .grid-3, .grid-2 { display: grid; gap: var(--gutter); }
 
@@ -657,14 +672,14 @@ button { cursor: pointer; }
 .band .button-primary { color: #fff; }
 
 .split-panel { display: grid; gap: var(--gutter); }
-.split-panel .section-header { max-width: none; }
+.split-panel .section-header { max-width: 760px; }
 .page-hero .split-panel .section-header h1 {
   font-size: clamp(2.1rem, 5.2vw, 4.35rem);
   line-height: 1.04;
 }
 
 .page-hero .split-panel .showcase-card {
-  margin-top: 112px;
+  margin-top: 188px;
 }
 
 .showcase-screen {
@@ -826,11 +841,11 @@ button { cursor: pointer; }
 .footer-links { display: grid; gap: 10px; }
 .footer-links a:hover, .footer-links a:focus-visible { color: #fff; }
 .footer-meta { color: rgba(255, 255, 255, 0.56); font-size: 0.9rem; }
-.page-hero { padding-top: 36px; }
+.page-hero { padding-top: 20px; }
 
 @media (max-width: 768px) {
   .section { padding: 52px 0; }
-  .page-hero { padding-top: 20px; }
+  .page-hero { padding-top: 10px; }
   .header-inner { align-items: flex-start; }
   .header-actions { margin-left: auto; }
   .site-nav {
@@ -901,7 +916,7 @@ button { cursor: pointer; }
   .grid-3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
   .split-panel { grid-template-columns: minmax(0, 1fr) minmax(360px, 0.84fr); }
   .contact-grid { grid-template-columns: 0.9fr 1.1fr; }
-  .page-hero .split-panel .showcase-card { margin-top: 152px; }
+  .page-hero .split-panel .showcase-card { margin-top: 228px; }
   .footer-panel {
     grid-template-columns: minmax(240px, 1.3fr) repeat(2, minmax(120px, 180px)) auto;
     align-items: start;
