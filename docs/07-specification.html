@@ -203,28 +203,361 @@ MySQL / H2
         <section class="section" id="sec4">
           <h2 class="section-title"><span class="section-icon">4</span> 機能詳細仕様</h2>
 
-
           <div class="subsection">
-            <h3 class="subsection-title">機能仕様テンプレート（コピーして使用）</h3>
-
-        <div class="fill-block">
-          <div class="fill-label">機能名：（機能名を入力） <span class="required">必須</span></div>
-          <div class="fill-hint">機能ID：F-XXX</div>
-          <div class="fill-content">
-            <p>（機能の詳細仕様を記載）</p>
-          </div>
-        </div>
-
+            <h3 class="subsection-title">F-001 ログイン</h3>
+            <div class="fill-block">
+              <div class="fill-label">機能概要 <span class="required">必須</span></div>
+              <div class="fill-content">
+                <p>メールアドレス、パスワード、ログインボタンを中央に配置する。入力後に認証を行い、成功時はダッシュボードへ遷移する。未入力、形式不正、認証失敗時は同画面にエラーを表示する。</p>
+              </div>
+            </div>
             <div class="fill-block">
               <div class="fill-label">入力項目一覧 <span class="required">必須</span></div>
-        <table class="doc-table">
-          <thead><tr><th>項目名</th><th>データ型</th><th>必須</th><th>バリデーション</th><th>備考</th></tr></thead>
-          <tbody>
-          <tr class="template-row"><td>（項目名）</td><td>（String / Integer / Date 等）</td><td>（○ / —）</td><td>（必須チェック / 文字数制限 等）</td><td>（備考）</td></tr>
-          <tr class="template-row"><td>…</td><td>…</td><td>…</td><td>…</td><td>…</td></tr>
-          </tbody>
-        </table>
+              <table class="doc-table">
+                <thead><tr><th>項目名</th><th>データ型</th><th>必須</th><th>バリデーション</th><th>備考</th></tr></thead>
+                <tbody>
+                  <tr><td>メールアドレス</td><td>String</td><td>○</td><td>必須、メール形式、255文字以内</td><td>認証ID</td></tr>
+                  <tr><td>パスワード</td><td>String</td><td>○</td><td>必須、8文字以上、100文字以内</td><td>マスク表示</td></tr>
+                  <tr><td>ログインボタン</td><td>Action</td><td>○</td><td>入力値が有効な場合のみ実行</td><td>成功時はダッシュボードへ</td></tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
 
+          <div class="subsection">
+            <h3 class="subsection-title">F-002 ログアウト</h3>
+            <div class="fill-block">
+              <div class="fill-label">機能概要 <span class="required">必須</span></div>
+              <div class="fill-content">
+                <p>ヘッダー右上のログアウト導線からセッションを破棄し、ログイン画面へ戻す。確認ダイアログを設ける場合は、OKで実行、キャンセルで元画面に留まる。失敗時は同画面でエラーを表示する。</p>
+              </div>
+            </div>
+            <div class="fill-block">
+              <div class="fill-label">入力項目一覧 <span class="required">必須</span></div>
+              <table class="doc-table">
+                <thead><tr><th>項目名</th><th>データ型</th><th>必須</th><th>バリデーション</th><th>備考</th></tr></thead>
+                <tbody>
+                  <tr><td>ログアウトボタン</td><td>Action</td><td>○</td><td>押下時にログアウト処理</td><td>ヘッダー配置</td></tr>
+                  <tr><td>確認OK</td><td>Action</td><td>△</td><td>確認ありの場合のみ</td><td>セッション破棄</td></tr>
+                  <tr><td>確認キャンセル</td><td>Action</td><td>△</td><td>処理中止</td><td>元画面へ戻る</td></tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+          <div class="subsection">
+            <h3 class="subsection-title">F-003 危険イベント一覧表示</h3>
+            <div class="fill-block">
+              <div class="fill-label">機能概要 <span class="required">必須</span></div>
+              <div class="fill-content">
+                <p>上部に検索条件、中央に一覧テーブル、下部にページネーションを配置する。危険イベントを取得して発生日、種別、危険度、状態、操作を表示し、詳細押下で詳細画面へ遷移する。取得失敗時は一覧上部にエラーを表示する。</p>
+              </div>
+            </div>
+            <div class="fill-block">
+              <div class="fill-label">入力項目一覧 <span class="required">必須</span></div>
+              <table class="doc-table">
+                <thead><tr><th>項目名</th><th>データ型</th><th>必須</th><th>バリデーション</th><th>備考</th></tr></thead>
+                <tbody>
+                  <tr><td>キーワード</td><td>String</td><td>—</td><td>100文字以内</td><td>検索条件</td></tr>
+                  <tr><td>危険度・状態</td><td>String</td><td>—</td><td>定義済み値のみ</td><td>絞り込み</td></tr>
+                  <tr><td>詳細ボタン</td><td>Action</td><td>○</td><td>対象IDが存在すること</td><td>詳細画面へ</td></tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+          <div class="subsection">
+            <h3 class="subsection-title">F-004 危険イベント詳細表示</h3>
+            <div class="fill-block">
+              <div class="fill-label">機能概要 <span class="required">必須</span></div>
+              <div class="fill-content">
+                <p>概要情報、検知内容、危険理由、推奨対応を確認できる詳細画面を表示する。管理者には編集、削除ボタンを表示し、一般ユーザーには閲覧のみを許可する。対象が存在しない場合はエラーを表示して一覧へ戻す。</p>
+              </div>
+            </div>
+            <div class="fill-block">
+              <div class="fill-label">入力項目一覧 <span class="required">必須</span></div>
+              <table class="doc-table">
+                <thead><tr><th>項目名</th><th>データ型</th><th>必須</th><th>バリデーション</th><th>備考</th></tr></thead>
+                <tbody>
+                  <tr><td>イベントID</td><td>Integer</td><td>○</td><td>1以上、対象データ存在</td><td>URLパラメータ</td></tr>
+                  <tr><td>編集ボタン</td><td>Action</td><td>△</td><td>管理者のみ</td><td>編集画面へ</td></tr>
+                  <tr><td>削除ボタン</td><td>Action</td><td>△</td><td>管理者のみ</td><td>削除確認へ</td></tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+          <div class="subsection">
+            <h3 class="subsection-title">F-005 危険イベント新規登録</h3>
+            <div class="fill-block">
+              <div class="fill-label">機能概要 <span class="required">必須</span></div>
+              <div class="fill-content">
+                <p>イベント種別、発生日、危険度、状態、対象チャネル、検知内容などを入力できるフォームを配置する。保存時に入力チェックを行い、成功時は一覧画面へ戻る。形式不正や必須未入力時は同画面にエラーを表示する。</p>
+              </div>
+            </div>
+            <div class="fill-block">
+              <div class="fill-label">入力項目一覧 <span class="required">必須</span></div>
+              <table class="doc-table">
+                <thead><tr><th>項目名</th><th>データ型</th><th>必須</th><th>バリデーション</th><th>備考</th></tr></thead>
+                <tbody>
+                  <tr><td>イベント種別</td><td>String</td><td>○</td><td>必須、50文字以内</td><td>プルダウン可</td></tr>
+                  <tr><td>発生日</td><td>Date</td><td>○</td><td>必須、未来日不可</td><td>日付入力</td></tr>
+                  <tr><td>検知内容</td><td>String</td><td>○</td><td>必須、500文字以内</td><td>テキストエリア</td></tr>
+                  <tr><td>添付ファイル</td><td>File</td><td>—</td><td>許可形式、上限サイズ以内</td><td>任意</td></tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+          <div class="subsection">
+            <h3 class="subsection-title">F-006 危険イベント編集</h3>
+            <div class="fill-block">
+              <div class="fill-label">機能概要 <span class="required">必須</span></div>
+              <div class="fill-content">
+                <p>既存データを初期表示した編集フォームを配置し、管理者が内容を更新できるようにする。更新押下後に入力チェックを行い、成功時は詳細画面へ戻る。対象データが存在しない場合や更新失敗時はエラーを表示する。</p>
+              </div>
+            </div>
+            <div class="fill-block">
+              <div class="fill-label">入力項目一覧 <span class="required">必須</span></div>
+              <table class="doc-table">
+                <thead><tr><th>項目名</th><th>データ型</th><th>必須</th><th>バリデーション</th><th>備考</th></tr></thead>
+                <tbody>
+                  <tr><td>イベントID</td><td>Integer</td><td>○</td><td>対象データが存在すること</td><td>更新対象</td></tr>
+                  <tr><td>危険度</td><td>String</td><td>○</td><td>高・中・低のみ</td><td>選択式</td></tr>
+                  <tr><td>状態</td><td>String</td><td>○</td><td>未対応・確認中・対応済みのみ</td><td>選択式</td></tr>
+                  <tr><td>更新ボタン</td><td>Action</td><td>○</td><td>入力値が有効な場合のみ更新</td><td>詳細画面へ戻る</td></tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+          <div class="subsection">
+            <h3 class="subsection-title">F-007 危険イベント削除</h3>
+            <div class="fill-block">
+              <div class="fill-label">機能概要 <span class="required">必須</span></div>
+              <div class="fill-content">
+                <p>詳細画面から削除操作を行い、確認ダイアログで確定後に対象イベントを削除する。成功時は一覧画面へ戻り、失敗時は詳細画面上部にエラーを表示する。管理者のみが実行できる。</p>
+              </div>
+            </div>
+            <div class="fill-block">
+              <div class="fill-label">入力項目一覧 <span class="required">必須</span></div>
+              <table class="doc-table">
+                <thead><tr><th>項目名</th><th>データ型</th><th>必須</th><th>バリデーション</th><th>備考</th></tr></thead>
+                <tbody>
+                  <tr><td>イベントID</td><td>Integer</td><td>○</td><td>対象データが存在すること</td><td>削除対象</td></tr>
+                  <tr><td>削除ボタン</td><td>Action</td><td>○</td><td>管理者のみ</td><td>確認ダイアログ表示</td></tr>
+                  <tr><td>確認OK</td><td>Action</td><td>○</td><td>押下時に削除処理</td><td>一覧へ戻る</td></tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+          <div class="subsection">
+            <h3 class="subsection-title">F-008 監視設定更新</h3>
+            <div class="fill-block">
+              <div class="fill-label">機能概要 <span class="required">必須</span></div>
+              <div class="fill-content">
+                <p>メール監視、SNS監視、通信監視、通知設定を変更できるフォームを配置する。現在設定を初期表示し、保存時に入力チェックを行って設定を更新する。正常時は完了メッセージを表示してダッシュボードへ戻る。</p>
+              </div>
+            </div>
+            <div class="fill-block">
+              <div class="fill-label">入力項目一覧 <span class="required">必須</span></div>
+              <table class="doc-table">
+                <thead><tr><th>項目名</th><th>データ型</th><th>必須</th><th>バリデーション</th><th>備考</th></tr></thead>
+                <tbody>
+                  <tr><td>メール監視・SNS監視・通信監視</td><td>Boolean</td><td>○</td><td>ON/OFF のいずれか</td><td>トグル操作</td></tr>
+                  <tr><td>通知メールアドレス</td><td>String</td><td>—</td><td>メール形式、255文字以内</td><td>任意</td></tr>
+                  <tr><td>保存ボタン</td><td>Action</td><td>○</td><td>入力値が有効な場合のみ保存</td><td>ダッシュボードへ戻る</td></tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+          <div class="subsection">
+            <h3 class="subsection-title">F-009 レポート閲覧</h3>
+            <div class="fill-block">
+              <div class="fill-label">機能概要 <span class="required">必須</span></div>
+              <div class="fill-content">
+                <p>レポート一覧画面で期間や種別による絞り込みを行い、一覧から詳細へ遷移できる。画面上部に検索条件、中央にテーブル、各行に詳細ボタンを配置する。データ取得失敗時はエラーメッセージを表示する。</p>
+              </div>
+            </div>
+            <div class="fill-block">
+              <div class="fill-label">入力項目一覧 <span class="required">必須</span></div>
+              <table class="doc-table">
+                <thead><tr><th>項目名</th><th>データ型</th><th>必須</th><th>バリデーション</th><th>備考</th></tr></thead>
+                <tbody>
+                  <tr><td>キーワード</td><td>String</td><td>—</td><td>100文字以内</td><td>検索条件</td></tr>
+                  <tr><td>期間開始日・終了日</td><td>Date</td><td>—</td><td>日付形式、終了日は開始日以降</td><td>絞り込み</td></tr>
+                  <tr><td>詳細ボタン</td><td>Action</td><td>○</td><td>対象レポートが存在すること</td><td>詳細画面へ遷移</td></tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+          <div class="subsection">
+            <h3 class="subsection-title">F-010 入力バリデーション</h3>
+            <div class="fill-block">
+              <div class="fill-label">機能概要 <span class="required">必須</span></div>
+              <div class="fill-content">
+                <p>ログイン、登録、編集、検索など全入力画面で共通に動作し、必須、形式、文字数、期間整合性を検証する。エラーがある場合は項目下にメッセージを表示し、正常時のみ本処理へ進む。想定外エラー時は汎用メッセージを表示する。</p>
+              </div>
+            </div>
+            <div class="fill-block">
+              <div class="fill-label">入力項目一覧 <span class="required">必須</span></div>
+              <table class="doc-table">
+                <thead><tr><th>項目名</th><th>データ型</th><th>必須</th><th>バリデーション</th><th>備考</th></tr></thead>
+                <tbody>
+                  <tr><td>メールアドレス</td><td>String</td><td>画面による</td><td>必須、メール形式、255文字以内</td><td>共通項目</td></tr>
+                  <tr><td>日付項目</td><td>Date</td><td>画面による</td><td>日付形式、期間整合性</td><td>検索・登録で使用</td></tr>
+                  <tr><td>ファイル項目</td><td>File</td><td>—</td><td>許可形式、上限サイズ</td><td>添付用</td></tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+          <div class="subsection">
+            <h3 class="subsection-title">F-011 危険イベント検索</h3>
+            <div class="fill-block">
+              <div class="fill-label">機能概要 <span class="required">必須</span></div>
+              <div class="fill-content">
+                <p>危険イベント一覧画面上部の検索条件エリアからキーワード、危険度、状態、期間で絞り込む。検索結果は同画面に再表示し、条件クリアで初期表示に戻す。日付不正や期間逆転時はエラーを表示する。</p>
+              </div>
+            </div>
+            <div class="fill-block">
+              <div class="fill-label">入力項目一覧 <span class="required">必須</span></div>
+              <table class="doc-table">
+                <thead><tr><th>項目名</th><th>データ型</th><th>必須</th><th>バリデーション</th><th>備考</th></tr></thead>
+                <tbody>
+                  <tr><td>キーワード</td><td>String</td><td>—</td><td>100文字以内</td><td>部分一致検索</td></tr>
+                  <tr><td>開始日・終了日</td><td>Date</td><td>—</td><td>日付形式、終了日は開始日以降</td><td>期間検索</td></tr>
+                  <tr><td>検索・条件クリア</td><td>Action</td><td>○</td><td>押下時に再表示</td><td>一覧画面内で動作</td></tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+          <div class="subsection">
+            <h3 class="subsection-title">F-012 ソート</h3>
+            <div class="fill-block">
+              <div class="fill-label">機能概要 <span class="required">必須</span></div>
+              <div class="fill-content">
+                <p>危険イベント一覧画面で発生日、危険度、状態などを昇順・降順に並び替える。列見出しやソートボタンから操作し、現在の並び順が分かる表示を行う。不正なソート値が渡された場合は初期順に戻す。</p>
+              </div>
+            </div>
+            <div class="fill-block">
+              <div class="fill-label">入力項目一覧 <span class="required">必須</span></div>
+              <table class="doc-table">
+                <thead><tr><th>項目名</th><th>データ型</th><th>必須</th><th>バリデーション</th><th>備考</th></tr></thead>
+                <tbody>
+                  <tr><td>ソート項目</td><td>String</td><td>—</td><td>定義済み項目のみ</td><td>発生日、危険度など</td></tr>
+                  <tr><td>ソート順</td><td>String</td><td>—</td><td>asc / desc のみ</td><td>昇順・降順</td></tr>
+                  <tr><td>並び替え操作</td><td>Action</td><td>○</td><td>押下時に再取得</td><td>一覧再表示</td></tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+          <div class="subsection">
+            <h3 class="subsection-title">F-013 ページネーション</h3>
+            <div class="fill-block">
+              <div class="fill-label">機能概要 <span class="required">必須</span></div>
+              <div class="fill-content">
+                <p>危険イベント一覧画面下部にページ番号、前へ、次へを配置し、指定ページ分だけデータを表示する。検索条件やソート条件を維持したままページを切り替える。不正なページ番号指定時は先頭ページへ戻す。</p>
+              </div>
+            </div>
+            <div class="fill-block">
+              <div class="fill-label">入力項目一覧 <span class="required">必須</span></div>
+              <table class="doc-table">
+                <thead><tr><th>項目名</th><th>データ型</th><th>必須</th><th>バリデーション</th><th>備考</th></tr></thead>
+                <tbody>
+                  <tr><td>ページ番号</td><td>Integer</td><td>—</td><td>1以上の整数</td><td>対象ページ</td></tr>
+                  <tr><td>表示件数</td><td>Integer</td><td>—</td><td>定義済み件数のみ</td><td>固定件数想定</td></tr>
+                  <tr><td>前へ・次へ</td><td>Action</td><td>○</td><td>前後ページが存在すること</td><td>一覧画面内で移動</td></tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+          <div class="subsection">
+            <h3 class="subsection-title">F-014 レポート検索</h3>
+            <div class="fill-block">
+              <div class="fill-label">機能概要 <span class="required">必須</span></div>
+              <div class="fill-content">
+                <p>レポート一覧画面でキーワード、期間、レポート種別による検索を行う。検索結果は同画面に再表示し、条件クリアで初期表示に戻す。日付不正や期間逆転時はエラーを表示する。</p>
+              </div>
+            </div>
+            <div class="fill-block">
+              <div class="fill-label">入力項目一覧 <span class="required">必須</span></div>
+              <table class="doc-table">
+                <thead><tr><th>項目名</th><th>データ型</th><th>必須</th><th>バリデーション</th><th>備考</th></tr></thead>
+                <tbody>
+                  <tr><td>キーワード</td><td>String</td><td>—</td><td>100文字以内</td><td>部分一致</td></tr>
+                  <tr><td>開始日・終了日</td><td>Date</td><td>—</td><td>日付形式、終了日は開始日以降</td><td>期間検索</td></tr>
+                  <tr><td>レポート種別</td><td>String</td><td>—</td><td>定義済み種別のみ</td><td>プルダウン可</td></tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+          <div class="subsection">
+            <h3 class="subsection-title">F-015 CSV出力</h3>
+            <div class="fill-block">
+              <div class="fill-label">機能概要 <span class="required">必須</span></div>
+              <div class="fill-content">
+                <p>危険イベント一覧画面、レポート一覧画面の上部に CSV出力ボタンを配置し、現在の検索条件に合うデータを CSV ファイルとしてダウンロードさせる。出力失敗時は一覧画面上でエラーメッセージを表示する。</p>
+              </div>
+            </div>
+            <div class="fill-block">
+              <div class="fill-label">入力項目一覧 <span class="required">必須</span></div>
+              <table class="doc-table">
+                <thead><tr><th>項目名</th><th>データ型</th><th>必須</th><th>バリデーション</th><th>備考</th></tr></thead>
+                <tbody>
+                  <tr><td>出力対象条件</td><td>String</td><td>—</td><td>現在の検索条件を使用</td><td>ユーザー入力なし</td></tr>
+                  <tr><td>CSV出力ボタン</td><td>Action</td><td>○</td><td>押下時にCSV生成</td><td>同画面のままダウンロード</td></tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+          <div class="subsection">
+            <h3 class="subsection-title">F-016 ファイルアップロード</h3>
+            <div class="fill-block">
+              <div class="fill-label">機能概要 <span class="required">必須</span></div>
+              <div class="fill-content">
+                <p>危険イベント登録画面、編集画面で添付ファイルをアップロードできる。選択したファイルに対し形式とサイズを検証し、登録または更新処理とあわせて保存する。許可外形式やサイズ超過時は同画面でエラーを表示する。</p>
+              </div>
+            </div>
+            <div class="fill-block">
+              <div class="fill-label">入力項目一覧 <span class="required">必須</span></div>
+              <table class="doc-table">
+                <thead><tr><th>項目名</th><th>データ型</th><th>必須</th><th>バリデーション</th><th>備考</th></tr></thead>
+                <tbody>
+                  <tr><td>添付ファイル</td><td>File</td><td>—</td><td>許可形式、上限サイズ以内</td><td>任意入力</td></tr>
+                  <tr><td>再選択ボタン</td><td>Action</td><td>—</td><td>別ファイルを選択可能</td><td>差し替え用</td></tr>
+                  <tr><td>削除チェック</td><td>Boolean</td><td>—</td><td>既存添付削除時のみ使用</td><td>編集画面で利用</td></tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+          <div class="subsection">
+            <h3 class="subsection-title">F-017 メール通知</h3>
+            <div class="fill-block">
+              <div class="fill-label">機能概要 <span class="required">必須</span></div>
+              <div class="fill-content">
+                <p>監視設定画面で通知ON/OFF、通知先メールアドレス、通知対象を設定する。保存後は設定内容を更新し、危険イベント検知時に対象ユーザーへメール送信する。形式不正や保存失敗時は設定画面にエラーを表示する。</p>
+              </div>
+            </div>
+            <div class="fill-block">
+              <div class="fill-label">入力項目一覧 <span class="required">必須</span></div>
+              <table class="doc-table">
+                <thead><tr><th>項目名</th><th>データ型</th><th>必須</th><th>バリデーション</th><th>備考</th></tr></thead>
+                <tbody>
+                  <tr><td>通知有無</td><td>Boolean</td><td>○</td><td>ON/OFF のいずれか</td><td>トグル操作</td></tr>
+                  <tr><td>通知先メールアドレス</td><td>String</td><td>—</td><td>メール形式、255文字以内</td><td>任意入力</td></tr>
+                  <tr><td>通知対象</td><td>String</td><td>—</td><td>定義済み通知種別のみ</td><td>イベント種別指定</td></tr>
+                </tbody>
+              </table>
             </div>
           </div>
         </section>
@@ -236,7 +569,12 @@ MySQL / H2
           <div class="fill-label">セキュリティ要件 <span class="required">必須</span></div>
           <div class="fill-hint">認証・認可・データ保護に関する要件</div>
           <div class="fill-content">
-            <p>（セキュリティ要件を記載）</p>
+            <p>・認証方式：Spring Security を利用し、ログイン認証と認可を行う。未認証ユーザーはログイン画面へリダイレクトする。</p>
+            <p>・パスワードの暗号化方式：パスワードは平文で保持せず、BCrypt でハッシュ化して保存する。</p>
+            <p>・CSRF対策：Spring Security の CSRF 保護を有効にし、フォーム送信時にトークンを検証する。</p>
+            <p>・XSS対策：入力値を画面表示する際はエスケープ処理を行い、Thymeleaf の標準エスケープを利用する。</p>
+            <p>・SQLインジェクション対策：Repository 経由でデータアクセスし、プレースホルダや ORM を利用して動的SQLの直接連結を避ける。</p>
+            <p>・セッション管理：ログイン成功時にセッションを発行し、ログアウト時に破棄する。セッションタイムアウトを設定し、不正利用を防ぐ。</p>
           </div>
         </div>
         <div class="fill-block">
