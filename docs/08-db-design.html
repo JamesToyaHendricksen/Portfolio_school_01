@@ -62,7 +62,79 @@
           <div class="fill-label">ER図 <span class="required">必須</span></div>
           <div class="fill-hint">テーブル間のリレーション図（テキストベースまたは画像で記載）</div>
           <div class="fill-content">
-            <p>（ER図を記載）</p>
+            <p><strong>システム概要：</strong>LifeShield AI の管理システムは、管理者と一般ユーザーが危険イベントの確認、監視設定、レポート閲覧を行うための Web アプリケーションです。AI 検知結果を整理し、個人ユーザーが安心してデジタル生活を送れるよう支援します。</p>
+            <p><strong>主な機能：</strong>ログイン、危険イベント管理、監視設定更新、レポート閲覧、検索、ソート、ページネーション、CSV出力、ファイルアップロード、メール通知</p>
+            <div class="ascii-diagram"><pre>[users] 1 ──── * [security_events]
+  id (PK)              id (PK)
+  name                 user_id (FK)
+  email                event_type
+  password_hash        risk_level
+  role                 status
+  created_at           channel
+  updated_at           detected_at
+                       reason
+                       recommendation
+                       created_at
+                       updated_at
+
+[users] 1 ──── 1 [monitoring_settings]
+  id (PK)              id (PK)
+  name                 user_id (FK, UNIQUE)
+  email                email_monitoring
+  password_hash        sns_monitoring
+  role                 network_monitoring
+  created_at           notification_enabled
+  updated_at           notification_email
+                       created_at
+                       updated_at
+
+[users] 1 ──── * [reports]
+  id (PK)              id (PK)
+  name                 user_id (FK)
+  email                report_type
+  password_hash        target_period_start
+  role                 target_period_end
+  created_at           summary
+  updated_at           generated_at
+                       created_at
+                       updated_at
+
+[security_events] 1 ──── * [attachments]
+  id (PK)                  id (PK)
+  user_id (FK)             security_event_id (FK)
+  event_type               file_name
+  risk_level               file_path
+  status                   file_type
+  channel                  file_size
+  detected_at              created_at
+  reason                   updated_at
+  recommendation
+
+[users] 1 ──── * [email_notifications]
+  id (PK)                  id (PK)
+  name                     user_id (FK)
+  email                    security_event_id (FK)
+  password_hash            notification_type
+  role                     recipient_email
+  created_at               sent_at
+  updated_at               send_status
+                           created_at
+                           updated_at
+
+補足：
+- users 1 対 多 security_events
+  1人のユーザーに対して複数の危険イベントが紐づく
+- users 1 対 1 monitoring_settings
+  1人のユーザーに対して監視設定は1件
+- users 1 対 多 reports
+  1人のユーザーに対して複数のレポートが作成される
+- security_events 1 対 多 attachments
+  1つの危険イベントに複数の添付ファイルを持てる
+- users 1 対 多 email_notifications
+  1人のユーザーに対して複数の通知履歴を持てる
+- security_events 1 対 多 email_notifications
+  1つの危険イベントに対して複数の通知履歴を持てる
+- 多対多は直接持たず、通知履歴は email_notifications を中間的な記録テーブルとして扱う</pre></div>
           </div>
         </div>
 
