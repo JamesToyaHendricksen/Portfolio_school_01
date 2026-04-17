@@ -429,6 +429,46 @@ a:hover { color: var(--black); }
   background: var(--gray-100);
 }
 
+/* Document 08: give the index table more breathing room without widening all docs */
+.db-design-page .doc-body {
+  max-width: 1120px;
+}
+
+.index-design-table {
+  table-layout: fixed;
+}
+
+.index-design-table th,
+.index-design-table td {
+  word-break: normal;
+  overflow-wrap: anywhere;
+}
+
+.index-design-table th:nth-child(1),
+.index-design-table td:nth-child(1) {
+  width: 15%;
+}
+
+.index-design-table th:nth-child(2),
+.index-design-table td:nth-child(2) {
+  width: 22%;
+}
+
+.index-design-table th:nth-child(3),
+.index-design-table td:nth-child(3) {
+  width: 18%;
+}
+
+.index-design-table th:nth-child(4),
+.index-design-table td:nth-child(4) {
+  width: 11%;
+}
+
+.index-design-table th:nth-child(5),
+.index-design-table td:nth-child(5) {
+  width: 34%;
+}
+
 /* template row */
 .doc-table .template-row td {
   color: var(--text-muted);

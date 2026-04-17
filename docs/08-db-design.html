@@ -7,7 +7,7 @@
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200">
   <link rel="stylesheet" href="../css/style.css">
 </head>
-<body>
+<body class="db-design-page">
   <button class="hamburger" aria-label="メニュー">
     <span></span><span></span><span></span>
   </button>
@@ -143,20 +143,121 @@
         <section class="section" id="sec2">
           <h2 class="section-title"><span class="section-icon">2</span> テーブル定義</h2>
 
+          <div class="fill-block">
+            <div class="fill-label">テーブル名：users <span class="required">必須</span></div>
+            <div class="fill-hint">テーブルの目的：ログインユーザー情報と権限情報を管理する</div>
+            <table class="doc-table">
+              <thead><tr><th>カラム名</th><th>データ型</th><th>NULL</th><th>デフォルト</th><th>制約</th><th>説明</th></tr></thead>
+              <tbody>
+                <tr><td>id</td><td>BIGINT</td><td>NO</td><td>AUTO_INCREMENT</td><td>PK</td><td>ユーザーID</td></tr>
+                <tr><td>name</td><td>VARCHAR(100)</td><td>NO</td><td>なし</td><td>NOT NULL</td><td>ユーザー名</td></tr>
+                <tr><td>email</td><td>VARCHAR(255)</td><td>NO</td><td>なし</td><td>UNIQUE, NOT NULL</td><td>ログイン用メールアドレス</td></tr>
+                <tr><td>password_hash</td><td>VARCHAR(255)</td><td>NO</td><td>なし</td><td>NOT NULL</td><td>ハッシュ化済みパスワード</td></tr>
+                <tr><td>role</td><td>VARCHAR(20)</td><td>NO</td><td>'USER'</td><td>NOT NULL</td><td>権限種別</td></tr>
+                <tr><td>created_at</td><td>DATETIME</td><td>NO</td><td>CURRENT_TIMESTAMP</td><td>NOT NULL</td><td>作成日時</td></tr>
+                <tr><td>updated_at</td><td>DATETIME</td><td>NO</td><td>CURRENT_TIMESTAMP</td><td>NOT NULL</td><td>更新日時</td></tr>
+                <tr><td>deleted_at</td><td>DATETIME</td><td>YES</td><td>NULL</td><td>—</td><td>論理削除日時</td></tr>
+              </tbody>
+            </table>
+          </div>
 
           <div class="fill-block">
-            <div class="fill-label">テーブル名：（テーブル名を入力） <span class="required">必須</span></div>
-            <div class="fill-hint">テーブルの目的：（このテーブルが管理するデータの説明）</div>
-        <table class="doc-table">
-          <thead><tr><th>カラム名</th><th>データ型</th><th>NULL</th><th>デフォルト</th><th>制約</th><th>説明</th></tr></thead>
-          <tbody>
-          <tr class="template-row"><td>id</td><td>BIGINT</td><td>NO</td><td>AUTO_INCREMENT</td><td>PK</td><td>主キー</td></tr>
-          <tr class="template-row"><td>（カラム名）</td><td>（VARCHAR(255) 等）</td><td>（YES/NO）</td><td>（デフォルト値）</td><td>（PK/FK/UNIQUE/NOT NULL）</td><td>（説明）</td></tr>
-          <tr class="template-row"><td>created_at</td><td>DATETIME</td><td>NO</td><td>CURRENT_TIMESTAMP</td><td>NOT NULL</td><td>作成日時</td></tr>
-          <tr class="template-row"><td>updated_at</td><td>DATETIME</td><td>NO</td><td>CURRENT_TIMESTAMP</td><td>NOT NULL</td><td>更新日時</td></tr>
-          </tbody>
-        </table>
+            <div class="fill-label">テーブル名：security_events <span class="required">必須</span></div>
+            <div class="fill-hint">テーブルの目的：危険イベントの内容と対応状況を管理する</div>
+            <table class="doc-table">
+              <thead><tr><th>カラム名</th><th>データ型</th><th>NULL</th><th>デフォルト</th><th>制約</th><th>説明</th></tr></thead>
+              <tbody>
+                <tr><td>id</td><td>BIGINT</td><td>NO</td><td>AUTO_INCREMENT</td><td>PK</td><td>危険イベントID</td></tr>
+                <tr><td>user_id</td><td>BIGINT</td><td>NO</td><td>なし</td><td>FK, NOT NULL</td><td>対象ユーザーID（FK → users.id）</td></tr>
+                <tr><td>event_type</td><td>VARCHAR(50)</td><td>NO</td><td>なし</td><td>NOT NULL</td><td>イベント種別</td></tr>
+                <tr><td>risk_level</td><td>VARCHAR(10)</td><td>NO</td><td>なし</td><td>NOT NULL</td><td>危険度</td></tr>
+                <tr><td>status</td><td>VARCHAR(20)</td><td>NO</td><td>なし</td><td>NOT NULL</td><td>対応状況</td></tr>
+                <tr><td>channel</td><td>VARCHAR(30)</td><td>NO</td><td>なし</td><td>NOT NULL</td><td>対象チャネル</td></tr>
+                <tr><td>detected_at</td><td>DATETIME</td><td>NO</td><td>なし</td><td>NOT NULL</td><td>検知日時</td></tr>
+                <tr><td>reason</td><td>TEXT</td><td>NO</td><td>なし</td><td>NOT NULL</td><td>危険理由</td></tr>
+                <tr><td>recommendation</td><td>TEXT</td><td>YES</td><td>NULL</td><td>—</td><td>推奨対応</td></tr>
+                <tr><td>created_at</td><td>DATETIME</td><td>NO</td><td>CURRENT_TIMESTAMP</td><td>NOT NULL</td><td>作成日時</td></tr>
+                <tr><td>updated_at</td><td>DATETIME</td><td>NO</td><td>CURRENT_TIMESTAMP</td><td>NOT NULL</td><td>更新日時</td></tr>
+                <tr><td>deleted_at</td><td>DATETIME</td><td>YES</td><td>NULL</td><td>—</td><td>論理削除日時</td></tr>
+              </tbody>
+            </table>
+          </div>
 
+          <div class="fill-block">
+            <div class="fill-label">テーブル名：monitoring_settings <span class="required">必須</span></div>
+            <div class="fill-hint">テーブルの目的：ユーザーごとの監視設定と通知設定を管理する</div>
+            <table class="doc-table">
+              <thead><tr><th>カラム名</th><th>データ型</th><th>NULL</th><th>デフォルト</th><th>制約</th><th>説明</th></tr></thead>
+              <tbody>
+                <tr><td>id</td><td>BIGINT</td><td>NO</td><td>AUTO_INCREMENT</td><td>PK</td><td>監視設定ID</td></tr>
+                <tr><td>user_id</td><td>BIGINT</td><td>NO</td><td>なし</td><td>FK, UNIQUE, NOT NULL</td><td>対象ユーザーID（FK → users.id）</td></tr>
+                <tr><td>email_monitoring</td><td>BOOLEAN</td><td>NO</td><td>FALSE</td><td>NOT NULL</td><td>メール監視有無</td></tr>
+                <tr><td>sns_monitoring</td><td>BOOLEAN</td><td>NO</td><td>FALSE</td><td>NOT NULL</td><td>SNS監視有無</td></tr>
+                <tr><td>network_monitoring</td><td>BOOLEAN</td><td>NO</td><td>FALSE</td><td>NOT NULL</td><td>通信監視有無</td></tr>
+                <tr><td>notification_enabled</td><td>BOOLEAN</td><td>NO</td><td>TRUE</td><td>NOT NULL</td><td>通知有無</td></tr>
+                <tr><td>notification_email</td><td>VARCHAR(255)</td><td>YES</td><td>NULL</td><td>—</td><td>通知先メールアドレス</td></tr>
+                <tr><td>created_at</td><td>DATETIME</td><td>NO</td><td>CURRENT_TIMESTAMP</td><td>NOT NULL</td><td>作成日時</td></tr>
+                <tr><td>updated_at</td><td>DATETIME</td><td>NO</td><td>CURRENT_TIMESTAMP</td><td>NOT NULL</td><td>更新日時</td></tr>
+              </tbody>
+            </table>
+          </div>
+
+          <div class="fill-block">
+            <div class="fill-label">テーブル名：reports <span class="required">必須</span></div>
+            <div class="fill-hint">テーブルの目的：ユーザー向けのレポート情報を管理する</div>
+            <table class="doc-table">
+              <thead><tr><th>カラム名</th><th>データ型</th><th>NULL</th><th>デフォルト</th><th>制約</th><th>説明</th></tr></thead>
+              <tbody>
+                <tr><td>id</td><td>BIGINT</td><td>NO</td><td>AUTO_INCREMENT</td><td>PK</td><td>レポートID</td></tr>
+                <tr><td>user_id</td><td>BIGINT</td><td>NO</td><td>なし</td><td>FK, NOT NULL</td><td>対象ユーザーID（FK → users.id）</td></tr>
+                <tr><td>report_type</td><td>VARCHAR(50)</td><td>NO</td><td>なし</td><td>NOT NULL</td><td>レポート種別</td></tr>
+                <tr><td>target_period_start</td><td>DATE</td><td>NO</td><td>なし</td><td>NOT NULL</td><td>対象期間開始日</td></tr>
+                <tr><td>target_period_end</td><td>DATE</td><td>NO</td><td>なし</td><td>NOT NULL</td><td>対象期間終了日</td></tr>
+                <tr><td>summary</td><td>TEXT</td><td>YES</td><td>NULL</td><td>—</td><td>レポート要約</td></tr>
+                <tr><td>generated_at</td><td>DATETIME</td><td>NO</td><td>CURRENT_TIMESTAMP</td><td>NOT NULL</td><td>生成日時</td></tr>
+                <tr><td>created_at</td><td>DATETIME</td><td>NO</td><td>CURRENT_TIMESTAMP</td><td>NOT NULL</td><td>作成日時</td></tr>
+                <tr><td>updated_at</td><td>DATETIME</td><td>NO</td><td>CURRENT_TIMESTAMP</td><td>NOT NULL</td><td>更新日時</td></tr>
+                <tr><td>deleted_at</td><td>DATETIME</td><td>YES</td><td>NULL</td><td>—</td><td>論理削除日時</td></tr>
+              </tbody>
+            </table>
+          </div>
+
+          <div class="fill-block">
+            <div class="fill-label">テーブル名：attachments <span class="required">必須</span></div>
+            <div class="fill-hint">テーブルの目的：危険イベントに紐づく添付ファイルを管理する</div>
+            <table class="doc-table">
+              <thead><tr><th>カラム名</th><th>データ型</th><th>NULL</th><th>デフォルト</th><th>制約</th><th>説明</th></tr></thead>
+              <tbody>
+                <tr><td>id</td><td>BIGINT</td><td>NO</td><td>AUTO_INCREMENT</td><td>PK</td><td>添付ファイルID</td></tr>
+                <tr><td>security_event_id</td><td>BIGINT</td><td>NO</td><td>なし</td><td>FK, NOT NULL</td><td>対象危険イベントID（FK → security_events.id）</td></tr>
+                <tr><td>file_name</td><td>VARCHAR(255)</td><td>NO</td><td>なし</td><td>NOT NULL</td><td>元ファイル名</td></tr>
+                <tr><td>file_path</td><td>VARCHAR(255)</td><td>NO</td><td>なし</td><td>NOT NULL</td><td>保存パス</td></tr>
+                <tr><td>file_type</td><td>VARCHAR(50)</td><td>NO</td><td>なし</td><td>NOT NULL</td><td>拡張子またはMIMEタイプ</td></tr>
+                <tr><td>file_size</td><td>BIGINT</td><td>NO</td><td>0</td><td>NOT NULL</td><td>ファイルサイズ</td></tr>
+                <tr><td>created_at</td><td>DATETIME</td><td>NO</td><td>CURRENT_TIMESTAMP</td><td>NOT NULL</td><td>作成日時</td></tr>
+                <tr><td>updated_at</td><td>DATETIME</td><td>NO</td><td>CURRENT_TIMESTAMP</td><td>NOT NULL</td><td>更新日時</td></tr>
+                <tr><td>deleted_at</td><td>DATETIME</td><td>YES</td><td>NULL</td><td>—</td><td>論理削除日時</td></tr>
+              </tbody>
+            </table>
+          </div>
+
+          <div class="fill-block">
+            <div class="fill-label">テーブル名：email_notifications <span class="required">必須</span></div>
+            <div class="fill-hint">テーブルの目的：危険イベントに対するメール通知履歴を管理する</div>
+            <table class="doc-table">
+              <thead><tr><th>カラム名</th><th>データ型</th><th>NULL</th><th>デフォルト</th><th>制約</th><th>説明</th></tr></thead>
+              <tbody>
+                <tr><td>id</td><td>BIGINT</td><td>NO</td><td>AUTO_INCREMENT</td><td>PK</td><td>通知履歴ID</td></tr>
+                <tr><td>user_id</td><td>BIGINT</td><td>NO</td><td>なし</td><td>FK, NOT NULL</td><td>通知対象ユーザーID（FK → users.id）</td></tr>
+                <tr><td>security_event_id</td><td>BIGINT</td><td>NO</td><td>なし</td><td>FK, NOT NULL</td><td>関連危険イベントID（FK → security_events.id）</td></tr>
+                <tr><td>notification_type</td><td>VARCHAR(50)</td><td>NO</td><td>なし</td><td>NOT NULL</td><td>通知種別</td></tr>
+                <tr><td>recipient_email</td><td>VARCHAR(255)</td><td>NO</td><td>なし</td><td>NOT NULL</td><td>送信先メールアドレス</td></tr>
+                <tr><td>sent_at</td><td>DATETIME</td><td>YES</td><td>NULL</td><td>—</td><td>送信日時</td></tr>
+                <tr><td>send_status</td><td>VARCHAR(20)</td><td>NO</td><td>'PENDING'</td><td>NOT NULL</td><td>送信状態</td></tr>
+                <tr><td>created_at</td><td>DATETIME</td><td>NO</td><td>CURRENT_TIMESTAMP</td><td>NOT NULL</td><td>作成日時</td></tr>
+                <tr><td>updated_at</td><td>DATETIME</td><td>NO</td><td>CURRENT_TIMESTAMP</td><td>NOT NULL</td><td>更新日時</td></tr>
+              </tbody>
+            </table>
           </div>
         </section>
 
@@ -165,13 +266,27 @@
 
           <div class="fill-block">
             <div class="fill-label">インデックス一覧 <span class="required">必須</span></div>
-        <table class="doc-table">
-          <thead><tr><th>テーブル名</th><th>インデックス名</th><th>対象カラム</th><th>種類</th><th>設定理由</th></tr></thead>
-          <tbody>
-          <tr class="template-row"><td>（テーブル名）</td><td>idx_（テーブル）_（カラム）</td><td>（カラム名）</td><td>（UNIQUE / INDEX）</td><td>（検索で頻繁に使用するため等）</td></tr>
-          <tr class="template-row"><td>…</td><td>…</td><td>…</td><td>…</td><td>…</td></tr>
-          </tbody>
-        </table>
+          <table class="doc-table index-design-table">
+            <thead><tr><th>テーブル名</th><th>インデックス名</th><th>対象カラム</th><th>種類</th><th>設定理由</th></tr></thead>
+            <tbody>
+          <tr><td>users</td><td>uk_users_email</td><td>email</td><td>UNIQUE</td><td>ログイン時にメールアドレスで一意に検索するため</td></tr>
+          <tr><td>security_events</td><td>idx_security_events_user_id</td><td>user_id</td><td>INDEX</td><td>ユーザーごとの危険イベント取得で使用するため</td></tr>
+          <tr><td>security_events</td><td>idx_security_events_detected_at</td><td>detected_at</td><td>INDEX</td><td>発生日順の並び替えや期間検索で使用するため</td></tr>
+          <tr><td>security_events</td><td>idx_security_events_risk_level</td><td>risk_level</td><td>INDEX</td><td>危険度での絞り込みやソートに使用するため</td></tr>
+          <tr><td>security_events</td><td>idx_security_events_status</td><td>status</td><td>INDEX</td><td>対応状況での絞り込みに使用するため</td></tr>
+          <tr><td>security_events</td><td>idx_security_events_channel</td><td>channel</td><td>INDEX</td><td>チャネル別検索に使用するため</td></tr>
+          <tr><td>monitoring_settings</td><td>uk_monitoring_settings_user_id</td><td>user_id</td><td>UNIQUE</td><td>1ユーザー1設定を保証するため</td></tr>
+          <tr><td>reports</td><td>idx_reports_user_id</td><td>user_id</td><td>INDEX</td><td>ユーザーごとのレポート一覧取得で使用するため</td></tr>
+          <tr><td>reports</td><td>idx_reports_generated_at</td><td>generated_at</td><td>INDEX</td><td>生成日時順の並び替えや新しい順表示に使用するため</td></tr>
+          <tr><td>reports</td><td>idx_reports_report_type</td><td>report_type</td><td>INDEX</td><td>レポート種別での絞り込みに使用するため</td></tr>
+          <tr><td>reports</td><td>idx_reports_target_period_start_end</td><td>target_period_start, target_period_end</td><td>INDEX</td><td>対象期間での検索に使用するため</td></tr>
+          <tr><td>attachments</td><td>idx_attachments_security_event_id</td><td>security_event_id</td><td>INDEX</td><td>危険イベント詳細画面で添付一覧を取得するため</td></tr>
+          <tr><td>email_notifications</td><td>idx_email_notifications_user_id</td><td>user_id</td><td>INDEX</td><td>ユーザーごとの通知履歴取得で使用するため</td></tr>
+          <tr><td>email_notifications</td><td>idx_email_notifications_security_event_id</td><td>security_event_id</td><td>INDEX</td><td>イベントに紐づく通知履歴取得で使用するため</td></tr>
+          <tr><td>email_notifications</td><td>idx_email_notifications_sent_at</td><td>sent_at</td><td>INDEX</td><td>送信日時順での確認や監査に使用するため</td></tr>
+          <tr><td>email_notifications</td><td>idx_email_notifications_send_status</td><td>send_status</td><td>INDEX</td><td>送信状態での絞り込みに使用するため</td></tr>
+            </tbody>
+          </table>
 
           </div>
         </section>
