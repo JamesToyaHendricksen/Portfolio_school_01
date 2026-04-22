@@ -79,18 +79,54 @@
 
           <div class="fill-block">
             <div class="fill-label">テストケース一覧 <span class="required">必須</span></div>
-        <table class="doc-table">
-          <thead><tr><th>ID</th><th>対象機能</th><th>テスト種別</th><th>テスト内容</th><th>期待結果</th><th>結果</th></tr></thead>
-          <tbody>
-          <tr class="template-row"><td>TC-001</td><td>（ログイン）</td><td>正常系</td><td>（正しいメール/パスワードでログイン）</td><td>（ダッシュボードに遷移）</td><td>（OK/NG）</td></tr>
-          <tr class="template-row"><td>TC-002</td><td>（ログイン）</td><td>異常系</td><td>（パスワード未入力でログイン）</td><td>（エラーメッセージ表示）</td><td>（OK/NG）</td></tr>
-          <tr class="template-row"><td>TC-003</td><td>（ログイン）</td><td>異常系</td><td>（存在しないメールでログイン）</td><td>（エラーメッセージ表示）</td><td>（OK/NG）</td></tr>
-          <tr class="template-row"><td>TC-004</td><td>（新規登録）</td><td>正常系</td><td>（全項目入力して登録）</td><td>（一覧に追加、成功メッセージ）</td><td>（OK/NG）</td></tr>
-          <tr class="template-row"><td>TC-005</td><td>（新規登録）</td><td>異常系</td><td>（必須項目未入力で登録）</td><td>（バリデーションエラー表示）</td><td>（OK/NG）</td></tr>
-          <tr class="template-row"><td>TC-006</td><td>（新規登録）</td><td>境界値</td><td>（最大文字数で入力して登録）</td><td>（正常に登録される）</td><td>（OK/NG）</td></tr>
-          <tr class="template-row"><td>…</td><td>…</td><td>…</td><td>…</td><td>…</td><td>…</td></tr>
-          </tbody>
-        </table>
+          <table class="doc-table">
+            <thead><tr><th>ID</th><th>対象機能</th><th>テスト種別</th><th>テスト内容</th><th>期待結果</th><th>結果</th></tr></thead>
+            <tbody>
+          <tr><td>TC-001</td><td>ログイン</td><td>正常系</td><td>正しいメールアドレスとパスワードを入力してログインする</td><td>ダッシュボード画面へ遷移する</td><td>未実施</td></tr>
+          <tr><td>TC-002</td><td>ログイン</td><td>異常系</td><td>メールアドレスを未入力でログインする</td><td>必須エラーメッセージが表示される</td><td>未実施</td></tr>
+          <tr><td>TC-003</td><td>ログイン</td><td>異常系</td><td>パスワードを未入力でログインする</td><td>必須エラーメッセージが表示される</td><td>未実施</td></tr>
+          <tr><td>TC-004</td><td>ログイン</td><td>異常系</td><td>存在しないメールアドレスでログインする</td><td>認証失敗メッセージが表示される</td><td>未実施</td></tr>
+          <tr><td>TC-005</td><td>ログイン</td><td>境界値</td><td>パスワードを8文字ちょうどで入力する</td><td>正常に認証処理が行われる</td><td>未実施</td></tr>
+          <tr><td>TC-006</td><td>ログアウト</td><td>正常系</td><td>ログアウトボタンを押す</td><td>セッションが破棄されログイン画面へ戻る</td><td>未実施</td></tr>
+          <tr><td>TC-007</td><td>ログアウト</td><td>異常系</td><td>セッション切れ状態でログアウト操作を行う</td><td>エラーなくログイン画面へ遷移する、または再ログインを促す</td><td>未実施</td></tr>
+          <tr><td>TC-008</td><td>危険イベント一覧表示</td><td>正常系</td><td>一覧画面を開く</td><td>危険イベント一覧が表示される</td><td>未実施</td></tr>
+          <tr><td>TC-009</td><td>危険イベント一覧表示</td><td>境界値</td><td>対象データが0件の状態で一覧画面を開く</td><td>0件メッセージが表示される</td><td>未実施</td></tr>
+          <tr><td>TC-010</td><td>危険イベント詳細表示</td><td>正常系</td><td>一覧から詳細ボタンを押す</td><td>対象イベントの詳細画面が表示される</td><td>未実施</td></tr>
+          <tr><td>TC-011</td><td>危険イベント詳細表示</td><td>異常系</td><td>存在しないイベントIDで詳細画面を開く</td><td>対象データなしのメッセージが表示される</td><td>未実施</td></tr>
+          <tr><td>TC-012</td><td>危険イベント新規登録</td><td>正常系</td><td>必須項目をすべて正しく入力して保存する</td><td>危険イベントが登録され一覧画面へ戻る</td><td>未実施</td></tr>
+          <tr><td>TC-013</td><td>危険イベント新規登録</td><td>異常系</td><td>必須項目を未入力で保存する</td><td>該当項目にエラーメッセージが表示される</td><td>未実施</td></tr>
+          <tr><td>TC-014</td><td>危険イベント新規登録</td><td>境界値</td><td>検知内容を500文字ちょうどで入力して保存する</td><td>正常に登録される</td><td>未実施</td></tr>
+          <tr><td>TC-015</td><td>危険イベント新規登録</td><td>境界値</td><td>検知内容を501文字で入力して保存する</td><td>文字数超過エラーが表示される</td><td>未実施</td></tr>
+          <tr><td>TC-016</td><td>危険イベント編集</td><td>正常系</td><td>既存イベントの内容を変更して更新する</td><td>詳細画面に更新内容が反映される</td><td>未実施</td></tr>
+          <tr><td>TC-017</td><td>危険イベント編集</td><td>異常系</td><td>存在しないイベントIDを編集する</td><td>対象データなしメッセージが表示される</td><td>未実施</td></tr>
+          <tr><td>TC-018</td><td>危険イベント削除</td><td>正常系</td><td>詳細画面で削除を確定する</td><td>対象イベントが削除され一覧画面へ戻る</td><td>未実施</td></tr>
+          <tr><td>TC-019</td><td>危険イベント削除</td><td>異常系</td><td>権限のないユーザーが削除を実行する</td><td>権限エラーが表示される</td><td>未実施</td></tr>
+          <tr><td>TC-020</td><td>監視設定更新</td><td>正常系</td><td>監視設定を変更して保存する</td><td>設定が更新されダッシュボードへ戻る</td><td>未実施</td></tr>
+          <tr><td>TC-021</td><td>監視設定更新</td><td>異常系</td><td>不正なメール形式で通知先メールアドレスを保存する</td><td>入力エラーが表示される</td><td>未実施</td></tr>
+          <tr><td>TC-022</td><td>レポート閲覧</td><td>正常系</td><td>レポート一覧画面を開く</td><td>レポート一覧が表示される</td><td>未実施</td></tr>
+          <tr><td>TC-023</td><td>レポート閲覧</td><td>正常系</td><td>一覧から詳細ボタンを押す</td><td>レポート詳細画面が表示される</td><td>未実施</td></tr>
+          <tr><td>TC-024</td><td>レポート閲覧</td><td>境界値</td><td>レポートが0件の状態で一覧画面を開く</td><td>0件メッセージが表示される</td><td>未実施</td></tr>
+          <tr><td>TC-025</td><td>入力バリデーション</td><td>異常系</td><td>メールアドレス形式が不正なまま送信する</td><td>メール形式エラーが表示される</td><td>未実施</td></tr>
+          <tr><td>TC-026</td><td>入力バリデーション</td><td>境界値</td><td>各入力項目に最小文字数・最大文字数で入力する</td><td>仕様どおりに許可またはエラーになる</td><td>未実施</td></tr>
+          <tr><td>TC-027</td><td>危険イベント検索</td><td>正常系</td><td>キーワードを入力して検索する</td><td>条件に一致するイベントだけ表示される</td><td>未実施</td></tr>
+          <tr><td>TC-028</td><td>危険イベント検索</td><td>異常系</td><td>開始日より前の終了日で検索する</td><td>期間エラーが表示される</td><td>未実施</td></tr>
+          <tr><td>TC-029</td><td>危険イベント検索</td><td>境界値</td><td>条件に一致するデータが0件で検索する</td><td>0件メッセージが表示される</td><td>未実施</td></tr>
+          <tr><td>TC-030</td><td>ソート</td><td>正常系</td><td>発生日の昇順ソートを実行する</td><td>発生日の古い順に並ぶ</td><td>未実施</td></tr>
+          <tr><td>TC-031</td><td>ソート</td><td>正常系</td><td>発生日の降順ソートを実行する</td><td>発生日の新しい順に並ぶ</td><td>未実施</td></tr>
+          <tr><td>TC-032</td><td>ページネーション</td><td>正常系</td><td>次ページを押す</td><td>次ページのデータが表示される</td><td>未実施</td></tr>
+          <tr><td>TC-033</td><td>ページネーション</td><td>境界値</td><td>最終ページで次ページを押す</td><td>ページが進まず最終ページのまま表示される</td><td>未実施</td></tr>
+          <tr><td>TC-034</td><td>レポート検索</td><td>正常系</td><td>期間と種別を指定して検索する</td><td>条件に一致するレポートのみ表示される</td><td>未実施</td></tr>
+          <tr><td>TC-035</td><td>レポート検索</td><td>異常系</td><td>不正な期間指定で検索する</td><td>期間エラーが表示される</td><td>未実施</td></tr>
+          <tr><td>TC-036</td><td>CSV出力</td><td>正常系</td><td>一覧画面でCSV出力ボタンを押す</td><td>CSVファイルがダウンロードされる</td><td>未実施</td></tr>
+          <tr><td>TC-037</td><td>CSV出力</td><td>境界値</td><td>対象データが0件の状態でCSV出力する</td><td>ヘッダーのみ、または0件CSVが出力される</td><td>未実施</td></tr>
+          <tr><td>TC-038</td><td>ファイルアップロード</td><td>正常系</td><td>許可形式・上限サイズ以内のファイルを添付して保存する</td><td>ファイル付きで正常登録される</td><td>未実施</td></tr>
+          <tr><td>TC-039</td><td>ファイルアップロード</td><td>異常系</td><td>許可外形式のファイルを添付する</td><td>ファイル形式エラーが表示される</td><td>未実施</td></tr>
+          <tr><td>TC-040</td><td>ファイルアップロード</td><td>境界値</td><td>上限サイズちょうどのファイルを添付する</td><td>正常にアップロードできる</td><td>未実施</td></tr>
+          <tr><td>TC-041</td><td>メール通知</td><td>正常系</td><td>通知設定を有効にして危険イベントを発生させる</td><td>通知メールが送信される</td><td>未実施</td></tr>
+          <tr><td>TC-042</td><td>メール通知</td><td>異常系</td><td>不正な通知先メールアドレスで保存する</td><td>入力エラーが表示される</td><td>未実施</td></tr>
+          <tr><td>TC-043</td><td>メール通知</td><td>異常系</td><td>メール送信処理が失敗する</td><td>送信失敗が記録され、エラーまたは再送対象となる</td><td>未実施</td></tr>
+            </tbody>
+          </table>
 
           </div>
         </section>
@@ -104,11 +140,11 @@
         <table class="doc-table">
           <thead><tr><th>項目</th><th>件数</th></tr></thead>
           <tbody>
-          <tr class="template-row"><td>総テストケース数</td><td>（数値を入力）</td></tr>
-          <tr class="template-row"><td>OK</td><td>（数値を入力）</td></tr>
-          <tr class="template-row"><td>NG</td><td>（数値を入力）</td></tr>
-          <tr class="template-row"><td>未実施</td><td>（数値を入力）</td></tr>
-          <tr class="template-row"><td>合格率</td><td>（％を入力）</td></tr>
+          <tr><td>総テストケース数</td><td>43</td></tr>
+          <tr><td>OK</td><td>0</td></tr>
+          <tr><td>NG</td><td>0</td></tr>
+          <tr><td>未実施</td><td>43</td></tr>
+          <tr><td>合格率</td><td>0%</td></tr>
           </tbody>
         </table>
 
@@ -123,8 +159,7 @@
         <table class="doc-table">
           <thead><tr><th>バグID</th><th>発見日</th><th>対象機能</th><th>内容</th><th>重大度</th><th>対応状況</th></tr></thead>
           <tbody>
-          <tr class="template-row"><td>BUG-001</td><td>（日付）</td><td>（機能名）</td><td>（バグの内容）</td><td>（高/中/低）</td><td>（修正済/対応中/保留）</td></tr>
-          <tr class="template-row"><td>…</td><td>…</td><td>…</td><td>…</td><td>…</td><td>…</td></tr>
+          <tr><td>—</td><td>—</td><td>—</td><td>現時点で重大な不具合は未記録</td><td>—</td><td>未発見</td></tr>
           </tbody>
         </table>
 

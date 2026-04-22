@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.lifeshieldai.mapper.MonitoringSettingMapper">
+
+    <resultMap id="monitoringSettingResultMap" type="com.example.lifeshieldai.entity.MonitoringSetting">
+        <id property="id" column="id"/>
+        <result property="userId" column="user_id"/>
+        <result property="emailMonitoring" column="email_monitoring"/>
+        <result property="snsMonitoring" column="sns_monitoring"/>
+        <result property="networkMonitoring" column="network_monitoring"/>
+        <result property="notificationEnabled" column="notification_enabled"/>
+        <result property="notificationEmail" column="notification_email"/>
+        <result property="createdAt" column="created_at"/>
+        <result property="updatedAt" column="updated_at"/>
+    </resultMap>
+
+    <select id="findByUserId" resultMap="monitoringSettingResultMap">
+        SELECT * FROM monitoring_settings WHERE user_id = #{userId}
+    </select>
+
+    <update id="update">
+        UPDATE monitoring_settings
+        SET email_monitoring = #{emailMonitoring},
+            sns_monitoring = #{snsMonitoring},
+            network_monitoring = #{networkMonitoring},
+            notification_enabled = #{notificationEnabled},
+            notification_email = #{notificationEmail},
+            updated_at = CURRENT_TIMESTAMP
+        WHERE user_id = #{userId}
+    </update>
+</mapper>

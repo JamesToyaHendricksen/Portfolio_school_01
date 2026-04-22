@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.lifeshieldai.mapper.AttachmentMapper">
+
+    <resultMap id="attachmentResultMap" type="com.example.lifeshieldai.entity.Attachment">
+        <id property="id" column="id"/>
+        <result property="securityEventId" column="security_event_id"/>
+        <result property="fileName" column="file_name"/>
+        <result property="filePath" column="file_path"/>
+        <result property="fileType" column="file_type"/>
+        <result property="fileSize" column="file_size"/>
+        <result property="createdAt" column="created_at"/>
+        <result property="updatedAt" column="updated_at"/>
+        <result property="deletedAt" column="deleted_at"/>
+    </resultMap>
+
+    <insert id="insert" useGeneratedKeys="true" keyProperty="id">
+        INSERT INTO attachments (
+            security_event_id, file_name, file_path, file_type, file_size, created_at, updated_at, deleted_at
+        ) VALUES (
+            #{securityEventId}, #{fileName}, #{filePath}, #{fileType}, #{fileSize}, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP, NULL
+        )
+    </insert>
+
+    <select id="findBySecurityEventId" resultMap="attachmentResultMap">
+        SELECT * FROM attachments
+        WHERE security_event_id = #{securityEventId}
+          AND deleted_at IS NULL
+        ORDER BY created_at DESC
+    </select>
+</mapper>

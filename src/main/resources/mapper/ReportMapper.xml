@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.lifeshieldai.mapper.ReportMapper">
+
+    <resultMap id="reportResultMap" type="com.example.lifeshieldai.entity.Report">
+        <id property="id" column="id"/>
+        <result property="userId" column="user_id"/>
+        <result property="reportType" column="report_type"/>
+        <result property="targetPeriodStart" column="target_period_start"/>
+        <result property="targetPeriodEnd" column="target_period_end"/>
+        <result property="summary" column="summary"/>
+        <result property="generatedAt" column="generated_at"/>
+        <result property="createdAt" column="created_at"/>
+        <result property="updatedAt" column="updated_at"/>
+        <result property="deletedAt" column="deleted_at"/>
+    </resultMap>
+
+    <sql id="reportWhere">
+        FROM reports
+        WHERE deleted_at IS NULL
+        <if test="keyword != null and keyword != ''">
+            AND summary LIKE CONCAT('%', #{keyword}, '%')
+        </if>
+        <if test="reportType != null and reportType != ''">
+            AND report_type = #{reportType}
+        </if>
+        <if test="startDate != null">
+            AND target_period_start &gt;= #{startDate}
+        </if>
+        <if test="endDate != null">
+            AND target_period_end &lt;= #{endDate}
+        </if>
+    </sql>
+
+    <select id="findAll" resultMap="reportResultMap">
+        SELECT * <include refid="reportWhere"/>
+        <choose>
+            <when test="sortBy == 'report_type'">ORDER BY report_type</when>
+            <otherwise>ORDER BY generated_at</otherwise>
+        </choose>
+        <choose>
+            <when test="sortDir == 'asc'">ASC</when>
+            <otherwise>DESC</otherwise>
+        </choose>
+        LIMIT #{limit} OFFSET #{offset}
+    </select>
+
+    <select id="countAll" resultType="long">
+        SELECT COUNT(*) <include refid="reportWhere"/>
+    </select>
+
+    <select id="findById" resultMap="reportResultMap">
+        SELECT * FROM reports WHERE id = #{id} AND deleted_at IS NULL
+    </select>
+</mapper>

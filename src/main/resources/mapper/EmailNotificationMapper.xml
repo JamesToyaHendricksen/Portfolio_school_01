@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.lifeshieldai.mapper.EmailNotificationMapper">
+
+    <resultMap id="emailNotificationResultMap" type="com.example.lifeshieldai.entity.EmailNotification">
+        <id property="id" column="id"/>
+        <result property="userId" column="user_id"/>
+        <result property="securityEventId" column="security_event_id"/>
+        <result property="notificationType" column="notification_type"/>
+        <result property="recipientEmail" column="recipient_email"/>
+        <result property="sentAt" column="sent_at"/>
+        <result property="sendStatus" column="send_status"/>
+        <result property="createdAt" column="created_at"/>
+        <result property="updatedAt" column="updated_at"/>
+    </resultMap>
+
+    <insert id="insert" useGeneratedKeys="true" keyProperty="id">
+        INSERT INTO email_notifications (
+            user_id, security_event_id, notification_type, recipient_email, sent_at, send_status, created_at, updated_at
+        ) VALUES (
+            #{userId}, #{securityEventId}, #{notificationType}, #{recipientEmail}, #{sentAt}, #{sendStatus}, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP
+        )
+    </insert>
+
+    <update id="updateStatus">
+        UPDATE email_notifications
+        SET send_status = #{sendStatus},
+            updated_at = CURRENT_TIMESTAMP
+        WHERE id = #{id}
+    </update>
+
+    <select id="findAll" resultMap="emailNotificationResultMap">
+        SELECT * FROM email_notifications ORDER BY created_at DESC
+    </select>
+</mapper>

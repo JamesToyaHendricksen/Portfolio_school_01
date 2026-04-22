@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.lifeshieldai.mapper.EventCategoryMapper">
+
+    <resultMap id="eventCategoryResultMap" type="com.example.lifeshieldai.entity.EventCategory">
+        <id property="id" column="id"/>
+        <result property="categoryCode" column="category_code"/>
+        <result property="categoryName" column="category_name"/>
+        <result property="description" column="description"/>
+        <result property="sortOrder" column="sort_order"/>
+        <result property="createdAt" column="created_at"/>
+        <result property="updatedAt" column="updated_at"/>
+    </resultMap>
+
+    <select id="findAll" resultMap="eventCategoryResultMap">
+        SELECT * FROM event_categories ORDER BY sort_order ASC, id ASC
+    </select>
+</mapper>

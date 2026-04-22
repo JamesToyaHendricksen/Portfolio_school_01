@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.lifeshieldai.mapper.SecurityEventMapper">
+
+    <resultMap id="securityEventResultMap" type="com.example.lifeshieldai.entity.SecurityEvent">
+        <id property="id" column="id"/>
+        <result property="userId" column="user_id"/>
+        <result property="eventType" column="event_type"/>
+        <result property="riskLevel" column="risk_level"/>
+        <result property="status" column="status"/>
+        <result property="channel" column="channel"/>
+        <result property="detectedAt" column="detected_at"/>
+        <result property="reason" column="reason"/>
+        <result property="recommendation" column="recommendation"/>
+        <result property="createdAt" column="created_at"/>
+        <result property="updatedAt" column="updated_at"/>
+        <result property="deletedAt" column="deleted_at"/>
+    </resultMap>
+
+    <sql id="securityEventWhere">
+        FROM security_events
+        WHERE deleted_at IS NULL
+        <if test="keyword != null and keyword != ''">
+            AND (event_type LIKE CONCAT('%', #{keyword}, '%')
+            OR reason LIKE CONCAT('%', #{keyword}, '%')
+            OR recommendation LIKE CONCAT('%', #{keyword}, '%'))
+        </if>
+        <if test="riskLevel != null and riskLevel != ''">
+            AND risk_level = #{riskLevel}
+        </if>
+        <if test="status != null and status != ''">
+            AND status = #{status}
+        </if>
+        <if test="channel != null and channel != ''">
+            AND channel = #{channel}
+        </if>
+        <if test="startDate != null">
+            AND detected_at &gt;= #{startDate}
+        </if>
+        <if test="endDate != null">
+            AND detected_at &lt;= #{endDate}
+        </if>
+    </sql>
+
+    <select id="findAll" resultMap="securityEventResultMap">
+        SELECT * <include refid="securityEventWhere"/>
+        <choose>
+            <when test="sortBy == 'risk_level'">ORDER BY risk_level</when>
+            <when test="sortBy == 'status'">ORDER BY status</when>
+            <when test="sortBy == 'channel'">ORDER BY channel</when>
+            <otherwise>ORDER BY detected_at</otherwise>
+        </choose>
+        <choose>
+            <when test="sortDir == 'asc'">ASC</when>
+            <otherwise>DESC</otherwise>
+        </choose>
+        LIMIT #{limit} OFFSET #{offset}
+    </select>
+
+    <select id="countAll" resultType="long">
+        SELECT COUNT(*) <include refid="securityEventWhere"/>
+    </select>
+
+    <select id="findById" resultMap="securityEventResultMap">
+        SELECT * FROM security_events WHERE id = #{id} AND deleted_at IS NULL
+    </select>
+
+    <insert id="insert" useGeneratedKeys="true" keyProperty="id">
+        INSERT INTO security_events (
+            user_id, event_type, risk_level, status, channel, detected_at, reason, recommendation, created_at, updated_at, deleted_at
+        ) VALUES (
+            #{userId}, #{eventType}, #{riskLevel}, #{status}, #{channel}, #{detectedAt}, #{reason}, #{recommendation}, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP, NULL
+        )
+    </insert>
+
+    <update id="update">
+        UPDATE security_events
+        SET user_id = #{userId},
+            event_type = #{eventType},
+            risk_level = #{riskLevel},
+            status = #{status},
+            channel = #{channel},
+            detected_at = #{detectedAt},
+            reason = #{reason},
+            recommendation = #{recommendation},
+            updated_at = CURRENT_TIMESTAMP
+        WHERE id = #{id}
+          AND deleted_at IS NULL
+    </update>
+
+    <update id="softDelete">
+        UPDATE security_events
+        SET deleted_at = CURRENT_TIMESTAMP,
+            updated_at = CURRENT_TIMESTAMP
+        WHERE id = #{id}
+          AND deleted_at IS NULL
+    </update>
+</mapper>
