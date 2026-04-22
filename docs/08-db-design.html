@@ -184,6 +184,23 @@
           </div>
 
           <div class="fill-block">
+            <div class="fill-label">テーブル名：event_categories <span class="required">必須</span></div>
+            <div class="fill-hint">テーブルの目的：危険イベントのカテゴリマスタを管理する</div>
+            <table class="doc-table">
+              <thead><tr><th>カラム名</th><th>データ型</th><th>NULL</th><th>デフォルト</th><th>制約</th><th>説明</th></tr></thead>
+              <tbody>
+                <tr><td>id</td><td>BIGINT</td><td>NO</td><td>AUTO_INCREMENT</td><td>PK</td><td>カテゴリID</td></tr>
+                <tr><td>category_code</td><td>VARCHAR(50)</td><td>NO</td><td>なし</td><td>UNIQUE, NOT NULL</td><td>カテゴリコード</td></tr>
+                <tr><td>category_name</td><td>VARCHAR(100)</td><td>NO</td><td>なし</td><td>NOT NULL</td><td>カテゴリ名</td></tr>
+                <tr><td>description</td><td>VARCHAR(255)</td><td>YES</td><td>NULL</td><td>—</td><td>カテゴリ説明</td></tr>
+                <tr><td>sort_order</td><td>INT</td><td>NO</td><td>0</td><td>NOT NULL</td><td>表示順</td></tr>
+                <tr><td>created_at</td><td>DATETIME</td><td>NO</td><td>CURRENT_TIMESTAMP</td><td>NOT NULL</td><td>作成日時</td></tr>
+                <tr><td>updated_at</td><td>DATETIME</td><td>NO</td><td>CURRENT_TIMESTAMP</td><td>NOT NULL</td><td>更新日時</td></tr>
+              </tbody>
+            </table>
+          </div>
+
+          <div class="fill-block">
             <div class="fill-label">テーブル名：monitoring_settings <span class="required">必須</span></div>
             <div class="fill-hint">テーブルの目的：ユーザーごとの監視設定と通知設定を管理する</div>
             <table class="doc-table">
@@ -275,6 +292,8 @@
           <tr><td>security_events</td><td>idx_security_events_risk_level</td><td>risk_level</td><td>INDEX</td><td>危険度での絞り込みやソートに使用するため</td></tr>
           <tr><td>security_events</td><td>idx_security_events_status</td><td>status</td><td>INDEX</td><td>対応状況での絞り込みに使用するため</td></tr>
           <tr><td>security_events</td><td>idx_security_events_channel</td><td>channel</td><td>INDEX</td><td>チャネル別検索に使用するため</td></tr>
+          <tr><td>event_categories</td><td>uk_event_categories_category_code</td><td>category_code</td><td>UNIQUE</td><td>カテゴリコードを一意に管理するため</td></tr>
+          <tr><td>event_categories</td><td>idx_event_categories_sort_order</td><td>sort_order</td><td>INDEX</td><td>表示順で並び替えるため</td></tr>
           <tr><td>monitoring_settings</td><td>uk_monitoring_settings_user_id</td><td>user_id</td><td>UNIQUE</td><td>1ユーザー1設定を保証するため</td></tr>
           <tr><td>reports</td><td>idx_reports_user_id</td><td>user_id</td><td>INDEX</td><td>ユーザーごとのレポート一覧取得で使用するため</td></tr>
           <tr><td>reports</td><td>idx_reports_generated_at</td><td>generated_at</td><td>INDEX</td><td>生成日時順の並び替えや新しい順表示に使用するため</td></tr>

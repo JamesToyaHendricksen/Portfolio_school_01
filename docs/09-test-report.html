@@ -63,7 +63,11 @@
           <div class="fill-label">テスト対象・範囲 <span class="required">必須</span></div>
           <div class="fill-hint">テストの対象となる機能・画面と、テストの種類</div>
           <div class="fill-content">
-            <p>（テスト計画を記載）</p>
+            <p>テスト対象の範囲は、LifeShield AI 管理システムのログイン、ログアウト、危険イベント管理、監視設定更新、レポート閲覧、検索、ソート、ページネーション、CSV出力、ファイルアップロード、メール通知機能とする。あわせて、画面表示、入力バリデーション、画面遷移、主要なセキュリティ要件も確認対象に含める。</p>
+            <p>機能一覧は、ログイン、ログアウト、危険イベント一覧表示、危険イベント詳細表示、危険イベント新規登録、危険イベント編集、危険イベント削除、監視設定更新、レポート閲覧、入力バリデーション、危険イベント検索、ソート、ページネーション、レポート検索、CSV出力、ファイルアップロード、メール通知とする。</p>
+            <p>テスト種別は、機能テスト、画面テスト、セキュリティテストとする。機能テストでは正常系・異常系の動作を確認し、画面テストではレイアウト、入力フォーム、画面遷移、レスポンシブ表示を確認する。セキュリティテストでは認証、アクセス制御、CSRF対策、XSS対策、SQLインジェクション対策、セッション管理を確認する。</p>
+            <p>テスト環境は、Windows 10 および Windows 11 を対象OSとし、Google Chrome 最新版、Microsoft Edge 最新版、Firefox 最新版で確認する。画面幅は PC、タブレット、スマートフォン相当を対象とする。Windows 10 / 11 の両対応を想定し、主要ブラウザ上での表示と機能動作を確認する。</p>
+            <p>テスト期間は、設計完了後から実装確認までを含めて約1週間を想定し、2026年4月下旬から2026年5月上旬を目安とする。</p>
           </div>
         </div>
 
@@ -135,11 +139,14 @@
         <table class="doc-table">
           <thead><tr><th>ブラウザ/デバイス</th><th>バージョン</th><th>表示</th><th>機能</th><th>備考</th></tr></thead>
           <tbody>
-          <tr class="template-row"><td>Chrome（PC）</td><td>（バージョン）</td><td>（○/△/×）</td><td>（○/△/×）</td><td>（備考）</td></tr>
-          <tr class="template-row"><td>Firefox（PC）</td><td>（バージョン）</td><td>（○/△/×）</td><td>（○/△/×）</td><td>（備考）</td></tr>
-          <tr class="template-row"><td>Edge（PC）</td><td>（バージョン）</td><td>（○/△/×）</td><td>（○/△/×）</td><td>（備考）</td></tr>
-          <tr class="template-row"><td>Chrome（スマートフォン）</td><td>（バージョン）</td><td>（○/△/×）</td><td>（○/△/×）</td><td>（備考）</td></tr>
-          <tr class="template-row"><td>Safari（iPhone）</td><td>（バージョン）</td><td>（○/△/×）</td><td>（○/△/×）</td><td>（備考）</td></tr>
+          <tr><td>Chrome（Windows 10 / PC）</td><td>最新版</td><td>○</td><td>○</td><td>主要確認対象。レイアウト、入力、画面遷移を確認する</td></tr>
+          <tr><td>Chrome（Windows 11 / PC）</td><td>最新版</td><td>○</td><td>○</td><td>主要確認対象。Glass表現やレスポンシブ挙動も確認する</td></tr>
+          <tr><td>Edge（Windows 10 / PC）</td><td>最新版</td><td>○</td><td>○</td><td>Microsoft環境での標準利用を想定して確認する</td></tr>
+          <tr><td>Edge（Windows 11 / PC）</td><td>最新版</td><td>○</td><td>○</td><td>主要確認対象。フォームや画面遷移を重点確認する</td></tr>
+          <tr><td>Firefox（Windows 10 / PC）</td><td>最新版</td><td>○</td><td>○</td><td>主要機能の動作確認を行う</td></tr>
+          <tr><td>Firefox（Windows 11 / PC）</td><td>最新版</td><td>○</td><td>○</td><td>表示差分が出やすい箇所を中心に確認する</td></tr>
+          <tr><td>Chrome（タブレット相当幅）</td><td>最新版</td><td>○</td><td>○</td><td>開発者ツールによる画面幅確認を含む</td></tr>
+          <tr><td>Chrome（スマートフォン相当幅）</td><td>最新版</td><td>○</td><td>○</td><td>レスポンシブ表示、ハンバーガーメニューを確認する</td></tr>
           </tbody>
         </table>
 
