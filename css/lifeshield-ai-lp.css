@@ -992,8 +992,8 @@ button { cursor: pointer; }
   .contact-form {
     padding: 20px;
   }
-  .page-hero .section-header h1 {
-    font-size: clamp(2.1rem, 8.4vw, 3.4rem);
+.page-hero .section-header h1 {
+    font-size: clamp(2rem, 6vw, 3.3rem);
     line-height: 1.08;
   }
   .notice-list,
@@ -1049,9 +1049,10 @@ button { cursor: pointer; }
   .grid-3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
   .split-panel { display: grid; gap: var(--gutter); grid-template-columns: minmax(0, 1fr) minmax(360px, 0.84fr); }
   .split-panel .section-header { max-width: 760px; }
-  .page-hero .split-panel .section-header h1 {
-    font-size: clamp(2.1rem, 5.2vw, 4.35rem);
-    line-height: 1.04;
+  .page-hero .split-panel .section-header h1,
+  .page-hero .section-header h1 {
+    font-size: clamp(2rem, 6vw, 3.3rem);
+    line-height: 1.06;
   }
   .contact-grid { grid-template-columns: 0.9fr 1.1fr; }
   .page-hero .split-panel .showcase-card { margin-top: 228px; }
