@@ -1,59 +1,61 @@
-<!DOCTYPE html><html lang="ja"><head><meta charset="UTF-8"><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="description" content="LifeShield AI のダッシュボードイメージと Spring Boot 管理システム予定画面を紹介します。"><title>ダッシュボード紹介 | LifeShield AI</title><link rel="stylesheet" href="../css/lifeshield-ai-lp.css"></head><body><a class="skip-link" href="#main-content">本文へ移動</a><div class="page-shell">    <header class="site-header" data-open="false">
+<!DOCTYPE html><html lang="ja"><head><meta charset="UTF-8"><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="description" content="LifeShield AI 鬩搾ｽｵ繝ｻ・ｺ郢晢ｽｻ繝ｻ・ｮ鬩幢ｽ｢隰ｨ魑ｴﾂ鬩幢ｽ｢隴擾ｽｴ郢晢ｽｻ驍ｵ・ｺ陷･謫ｾ・ｽ・ｹ隴趣ｽ｢繝ｻ・ｽ繝ｻ・･鬩幢ｽ｢隴弱・魃ｵ驛｢譎｢・ｽ・ｻ鬩幢ｽ｢隴取得・ｽ・ｳ繝ｻ・ｨ驍ｵ・ｺ郢晢ｽｻ繝ｻ・ｹ隴趣ｽ｢繝ｻ・ｽ繝ｻ・｡鬩幢ｽ｢隴趣ｽ｢繝ｻ・ｽ繝ｻ・ｼ鬩幢ｽ｢繝ｻ・ｧ郢晢ｽｻ繝ｻ・ｸ鬩搾ｽｵ繝ｻ・ｺ郢晢ｽｻ繝ｻ・ｨ Spring Boot 鬯ｩ髦ｪ・代・・ｽ繝ｻ・｡鬯ｨ・ｾ郢晢ｽｻ郢晢ｽｻ驍ｵ・ｺ陷･謫ｾ・ｽ・ｹ繝ｻ・ｧ郢晢ｽｻ繝ｻ・ｹ鬩幢ｽ｢隴擾ｽｴ郢晢ｽｻ繝ｻ荳ｻ・ｮ螢ｽ・ｻ邇匁ｻ九・・･郢晢ｽｻ繝ｻ・ｮ髯樊ｺ假ｽ・ｫ｢蟷・ｽｬ・ｮ繝ｻ・ｱ郢晢ｽｻ繝ｻ・｢鬩幢ｽ｢繝ｻ・ｧ髯懶ｽ｣繝ｻ・､郢晢ｽｻ繝ｻ・ｴ郢晢ｽｻ繝ｻ・ｹ鬮｣逍ｲ繝ｻ繝ｻ・ｹ隴趣ｽ｢繝ｻ・ｼ繝ｻ・ｰ鬩搾ｽｵ繝ｻ・ｺ郢晢ｽｻ繝ｻ・ｾ鬩搾ｽｵ繝ｻ・ｺ髯ｷ・ｷ繝ｻ・ｶ繝ｻ縺､ﾂ驛｢譎｢・ｽ・ｻ><title>鬩幢ｽ｢隰ｨ魑ｴﾂ鬩幢ｽ｢隴擾ｽｴ郢晢ｽｻ驍ｵ・ｺ陷･謫ｾ・ｽ・ｹ隴趣ｽ｢繝ｻ・ｽ繝ｻ・･鬩幢ｽ｢隴弱・魃ｵ驛｢譎｢・ｽ・ｻ鬩幢ｽ｢隴寂・繝ｻ郢晢ｽｻ繝ｻ・ｴ郢晢ｽｻ繝ｻ・ｹ鬮｣豕鯉ｽｳ・ｨ郢晢ｽｻ| LifeShield AI</title><link rel="stylesheet" href="../css/lifeshield-ai-lp.css"></head><body><a class="skip-link" href="#main-content">鬮ｫ・ｴ陝ｷ・｢繝ｻ・ｽ繝ｻ・ｬ鬮ｫ・ｴ遶丞｣ｹ繝ｻ驕ｶ蜀暦ｽ｣・ｯ・ゑｽｧ郢晢ｽｻ繝ｻ・ｻ鬮ｯ・ｷ鬮ｦ・ｪ郢晢ｽｻ/a><div class="page-shell">    <header class="site-header" data-open="false">
       <div class="container header-inner">
         <div class="header-brand">
-          <button class="brand-menu-toggle" type="button" aria-label="サイトメニューを開く" aria-expanded="false" aria-controls="site-menu-panel">
+          <button class="brand-menu-toggle" type="button" aria-label="鬩幢ｽ｢繝ｻ・ｧ郢晢ｽｻ繝ｻ・ｵ鬩幢ｽ｢繝ｻ・ｧ郢晢ｽｻ繝ｻ・､鬩幢ｽ｢隴主・讓溘・譛ｱ雎ｪ繝ｻ・ｹ隴乗・・ｽ・ｹ隴∵ｺｽ・､・ｼ繝ｻ・ｹ隴趣ｽ｢繝ｻ・ｽ繝ｻ・ｼ鬩幢ｽ｢繝ｻ・ｧ髯晢ｽｶ隴取得・ｽ・ｹ隲ｷ蛹・ｽｽ・ｸ繝ｻ・ｺ驛｢譎｢・ｽ・ｻ aria-expanded="false" aria-controls="site-menu-panel">
             <span class="brand-mark" aria-hidden="true"></span>
           </button>
-          <a class="brand-home" href="index.html" aria-label="LifeShield AI トップページ">
+          <a class="brand-home" href="index.html" aria-label="LifeShield AI 鬩幢ｽ｢隴主・讓滄Δ譎｢・ｽ・｣鬩幢ｽ｢隴惹ｸ橸ｽｹ・ｲ驛｢譎｢・ｽ・ｻ鬩幢ｽ｢隴趣ｽ｢繝ｻ・ｽ繝ｻ・ｼ鬩幢ｽ｢繝ｻ・ｧ郢晢ｽｻ繝ｻ・ｸ">
             <span class="brand-name">
               <strong>LifeShield AI</strong>
-              <span>個人向け AI セキュリティ</span>
+              <span>鬮ｯ蛹ｺ・ｺ・ｷ・つ繝ｻ・ｶ郢晢ｽｻ繝ｻ・ｺ郢晢ｽｻ繝ｻ・ｺ鬮ｯ・ｷ繝ｻ・ｷ髣比ｼ夲ｽｽ・｣郢晢ｽｻ繝ｻ・ｰ AI 鬩幢ｽ｢繝ｻ・ｧ郢晢ｽｻ繝ｻ・ｻ鬩幢ｽ｢繝ｻ・ｧ郢晢ｽｻ繝ｻ・ｭ鬩幢ｽ｢隴趣ｽ｢繝ｻ・ｽ繝ｻ・･鬩幢ｽ｢隴趣ｽ｢繝ｻ・ｽ繝ｻ・ｪ鬩幢ｽ｢隴擾ｽｴ郢晢ｽｻ驍ｵ・ｺ郢晢ｽｻ/span>
             </span>
           </a>
         </div>
-        <nav class="site-nav" aria-label="サイトメニュー">
+        <nav class="site-nav" aria-label="鬩幢ｽ｢繝ｻ・ｧ郢晢ｽｻ繝ｻ・ｵ鬩幢ｽ｢繝ｻ・ｧ郢晢ｽｻ繝ｻ・､鬩幢ｽ｢隴主・讓溘・譛ｱ雎ｪ繝ｻ・ｹ隴乗・・ｽ・ｹ隴∵ｺｽ・､・ｼ繝ｻ・ｹ隴趣ｽ｢繝ｻ・ｽ繝ｻ・ｼ">
           <div class="nav-dropdown-panel" id="site-menu-panel">
-            <a href="concept.html">サービス</a>
-            <a href="features.html">機能紹介</a>
-            <a href="pricing.html">料金</a>
-            <a href="support.html#faq">よくある質問</a>
-            <a href="dashboard-preview.html">ダッシュボード紹介</a>
-            <a href="news.html">お知らせ</a>
-            <a href="support.html">サポート</a>
-            <a href="contact.html">お問い合わせ</a>
-          </div>
-        </nav>
+  <a href="index.html">ホーム</a>
+  <a href="concept.html">サービス</a>
+  <a href="features.html">機能紹介</a>
+  <a href="pricing.html">料金</a>
+  <a href="support.html#faq">よくある質問</a>
+  <a href="dashboard-preview.html">ダッシュボード紹介</a>
+  <a href="news.html">お知らせ</a>
+  <a href="support.html">サポート</a>
+  <a href="contact.html">お問い合わせ</a>
+</div>
+</nav>
         <div class="header-actions">
-          <button class="mobile-nav-toggle" type="button" aria-label="メニューを開く" aria-expanded="false">☰</button>
-          <a class="button button-primary" href="contact.html">無料で始める</a>
+          <button class="mobile-nav-toggle" type="button" aria-label="鬩幢ｽ｢隴趣ｽ｢繝ｻ・ｽ繝ｻ・｡鬩幢ｽ｢隴乗・・ｽ・ｹ隴∵ｺｽ・､・ｼ繝ｻ・ｹ隴趣ｽ｢繝ｻ・ｽ繝ｻ・ｼ鬩幢ｽ｢繝ｻ・ｧ髯晢ｽｶ隴取得・ｽ・ｹ隲ｷ蛹・ｽｽ・ｸ繝ｻ・ｺ驛｢譎｢・ｽ・ｻ aria-expanded="false">鬮ｫ・ｨ陋帙・・ｽ・ｽ繝ｻ・ｰ</button>
+          <a class="button button-primary" href="contact.html">鬮ｴ蜿厄ｽｻ繧托ｽｽ・ｽ繝ｻ・｡鬮ｫ・ｴ遶乗刮蜃ｽ驍ｵ・ｲ陞ｳ螢ｽ・ｲ繧雁ｵｯ隴趣ｽ｢繝ｻ・ｽ遶擾ｽｫ繝ｻ・ｹ繝ｻ・ｧ驛｢譎｢・ｽ・ｻ/a>
         </div>
       </div>
-    </header><main id="main-content"><section class="section page-hero"><div class="container section-header"><span class="section-label">機器イベントの管理</span><h1>ダッシュボード</h1><p>検知結果を見やすく整理し、将来的には Spring Boot の管理システムとしてログイン後に確認できる画面を想定しています。</p></div></section><section class="section"><div class="container grid-2"><article class="dashboard-card"><h3>ログイン画面</h3><p>メールアドレスとパスワードで認証し、危険イベントの確認や通知設定に進む想定です。</p></article><article class="dashboard-card"><h3>ダッシュボード</h3><p>危険イベントの件数、未確認アラート、監視中チャネルの状態をひと目で確認できます。</p></article><article class="dashboard-card"><h3>危険イベント詳細</h3><p>検知理由、推奨対応、関連チャネルを一画面で確認し、そのまま次の行動へ進める想定です。</p></article></div></section></main>    <footer class="site-footer">
+    </header><main id="main-content"><section class="section page-hero"><div class="container section-header"><span class="section-label">鬮ｫ・ｶ陋ｹ繝ｻ・ｽ・ｺ繝ｻ・ｷ髯ｷ謳ｾ・ｽ・｣鬩幢ｽ｢繝ｻ・ｧ郢晢ｽｻ繝ｻ・､鬩幢ｽ｢隴主・蜃ｽ繝ｻ雜｣・ｽ・ｦ鬩幢ｽ｢隴主・讓滄Δ譎｢・ｽ・ｻ鬯ｩ髦ｪ・代・・ｽ繝ｻ・｡鬯ｨ・ｾ郢晢ｽｻ郢晢ｽｻ/span><h1>鬩幢ｽ｢隰ｨ魑ｴﾂ鬩幢ｽ｢隴擾ｽｴ郢晢ｽｻ驍ｵ・ｺ陷･謫ｾ・ｽ・ｹ隴趣ｽ｢繝ｻ・ｽ繝ｻ・･鬩幢ｽ｢隴弱・魃ｵ驛｢譎｢・ｽ・ｻ鬩幢ｽ｢隴擾ｽｴ郢晢ｽｻ/h1><p>鬮ｫ・ｶ・つ髫ｲ蟶吶・繝ｻ・｡陜難ｽｼ邵ｺ鬘俶ｦ陜捺ｻゑｽｽ・｣繝ｻ・｡鬩幢ｽ｢繝ｻ・ｧ髯橸ｽｳ陞滂ｽｲ繝ｻ・ｽ繝ｻ・ｦ髣包ｽｵ隴趣ｽ｢繝ｻ・ｽ郢晢ｽｻ繝ｻ・ｸ繝ｻ・ｺ髯ｷ・ｷ繝ｻ・ｶ郢晢ｽｻ繝ｻ・･鬮ｫ・ｰ繝ｻ・ｨ郢晢ｽｻ繝ｻ・ｴ鬯ｨ・ｾ郢晢ｽｻ郢晢ｽｻ郢晢ｽｻ繝ｻ・ｰ鬩搾ｽｵ繝ｻ・ｲ驕ｶ荵怜款繝ｻ・ｽ繝ｻ・ｰ驛｢譎｢・ｽ・ｻ髫ｰ・ｫ郢ｧ莉ｰﾂ繝ｻ・ｧ驛｢譎｢・ｽ・ｻ驕ｶ莨∬ｱｪ繝ｻ・ｸ繝ｻ・ｺ郢晢ｽｻ繝ｻ・ｯ Spring Boot 鬩搾ｽｵ繝ｻ・ｺ郢晢ｽｻ繝ｻ・ｮ鬯ｩ髦ｪ・代・・ｽ繝ｻ・｡鬯ｨ・ｾ郢晢ｽｻ郢晢ｽｻ驍ｵ・ｺ陷･謫ｾ・ｽ・ｹ繝ｻ・ｧ郢晢ｽｻ繝ｻ・ｹ鬩幢ｽ｢隴擾ｽｴ郢晢ｽｻ繝ｻ荳ｻ・ｰ・､繝ｻ・ｸ繝ｻ・ｺ郢晢ｽｻ繝ｻ・ｨ鬩搾ｽｵ繝ｻ・ｺ髯ｷ莨夲ｽｽ・ｱ驕ｯ・ｶ繝ｻ・ｻ鬩幢ｽ｢隴趣ｽ｢繝ｻ・ｽ繝ｻ・ｭ鬩幢ｽ｢繝ｻ・ｧ郢晢ｽｻ繝ｻ・ｰ鬩幢ｽ｢繝ｻ・ｧ郢晢ｽｻ繝ｻ・､鬩幢ｽ｢隴趣ｽ｢繝ｻ・ｽ繝ｻ・ｳ鬮ｯ貅ｷ萓帙・・ｾ陞ｽ・ｯ郢晢ｽｻ鬯ｩ蠅捺・繝ｻ・ｽ繝ｻ・ｺ鬯ｮ・ｫ繝ｻ・ｱ鬯ｮ・ｦ繝ｻ・ｪ驍ｵ・ｲ陜｣・､繝ｻ・ｸ繝ｻ・ｺ鬯ｮ・ｦ繝ｻ・ｪ郢晢ｽｻ驕擾ｽｩ・つ陋ｹ繝ｻ・ｽ・ｽ繝ｻ・ｻ鬯ｯ・ｮ繝ｻ・ｱ郢晢ｽｻ繝ｻ・｢鬩幢ｽ｢繝ｻ・ｧ髯ｷ・ｻ陞滂ｽｷ繝ｻ・ｦ鬮ｯ讖ｸ・ｽ・ｳ髯橸ｽ｢繝ｻ・ｹ郢晢ｽｻ繝ｻ・ｰ鬩搾ｽｵ繝ｻ・ｺ郢晢ｽｻ繝ｻ・ｦ鬩搾ｽｵ繝ｻ・ｺ驛｢譎｢・ｽ・ｻ驕ｶ謫ｾ・ｽ・ｪ鬩搾ｽｵ繝ｻ・ｺ髯ｷ・ｷ繝ｻ・ｶ繝ｻ縺､ﾂ驛｢譎｢・ｽ・ｻ/p></div></section><section class="section"><div class="container grid-2"><article class="dashboard-card"><h3>鬩幢ｽ｢隴趣ｽ｢繝ｻ・ｽ繝ｻ・ｭ鬩幢ｽ｢繝ｻ・ｧ郢晢ｽｻ繝ｻ・ｰ鬩幢ｽ｢繝ｻ・ｧ郢晢ｽｻ繝ｻ・､鬩幢ｽ｢隴趣ｽ｢繝ｻ・ｽ繝ｻ・ｳ鬯ｨ・ｾ陋ｹ繝ｻ・ｽ・ｽ繝ｻ・ｻ鬯ｯ・ｮ繝ｻ・ｱ郢晢ｽｻ繝ｻ・｢</h3><p>鬩幢ｽ｢隴趣ｽ｢繝ｻ・ｽ繝ｻ・｡鬩幢ｽ｢隴趣ｽ｢繝ｻ・ｽ繝ｻ・ｼ鬩幢ｽ｢隴趣ｽ｢繝ｻ・ｽ繝ｻ・ｫ鬩幢ｽ｢繝ｻ・ｧ郢晢ｽｻ繝ｻ・｢鬩幢ｽ｢隴取得・ｽ・ｳ繝ｻ・ｨ繝ｻ蜿厄ｽｨ謚ｵ・ｽ・ｹ繝ｻ・ｧ郢晢ｽｻ繝ｻ・ｹ鬩搾ｽｵ繝ｻ・ｺ郢晢ｽｻ繝ｻ・ｨ鬩幢ｽ｢隴乗・・ｽ・ｻ繝ｻ・｣驍ｵ・ｺ陝ｶ・ｷ繝ｻ・ｹ隴趣ｽ｢繝ｻ・ｽ繝ｻ・ｯ鬩幢ｽ｢隴趣ｽ｢繝ｻ・ｽ繝ｻ・ｼ鬩幢ｽ｢隴取得・ｽ・ｳ繝ｻ・ｨ驍ｵ・ｲ陝ｶ譎乗套髯晢｣ｰ髮懶ｽ｣繝ｻ・ｽ繝ｻ・ｨ郢晢ｽｻ繝ｻ・ｼ鬩搾ｽｵ繝ｻ・ｺ髯ｷ莨夲ｽｽ・ｱ繝ｻ縺､ﾂ驕ｶ荵励・繝ｻ・ｺ陝ｷ繝ｻ・ｽ・ｫ繝ｻ・ｯ郢晢ｽｻ繝ｻ・ｺ鬩幢ｽ｢繝ｻ・ｧ郢晢ｽｻ繝ｻ・､鬩幢ｽ｢隴主・蜃ｽ繝ｻ雜｣・ｽ・ｦ鬩幢ｽ｢隴主・讓滄Δ譎｢・ｽ・ｻ鬯ｩ蠅捺・繝ｻ・ｽ繝ｻ・ｺ鬯ｮ・ｫ繝ｻ・ｱ鬯ｮ・ｦ繝ｻ・ｪ郢晢ｽｻ郢晢ｽｻ繝ｻ・ｨ繝ｻ・ｾ髯樊ｺ假ｽ翫・・｡陜難ｽｼ陜ｮ蠑ｱ繝ｻ繝ｻ・ｭ鬮ｯ讖ｸ・ｽ・ｳ髯橸ｽ｢繝ｻ・ｹ驕ｶ莨・ｽｦ・ｴ繝ｻ・ｨ繝ｻ・ｾ郢晢ｽｻ繝ｻ・ｲ鬩幢ｽ｢繝ｻ・ｧ繝ｻ縺､ﾂ鬮ｫ・ｲ繝ｻ・ｰ郢晢ｽｻ繝ｻ・ｳ鬮ｯ讖ｸ・ｽ・ｳ髯橸ｽ｢繝ｻ・ｹ驍ｵ・ｲ陜｣・､繝ｻ・ｸ繝ｻ・ｺ髯ｷ・ｷ繝ｻ・ｶ繝ｻ縺､ﾂ驛｢譎｢・ｽ・ｻ/p></article><article class="dashboard-card"><h3>鬩幢ｽ｢隰ｨ魑ｴﾂ鬩幢ｽ｢隴擾ｽｴ郢晢ｽｻ驍ｵ・ｺ陷･謫ｾ・ｽ・ｹ隴趣ｽ｢繝ｻ・ｽ繝ｻ・･鬩幢ｽ｢隴弱・魃ｵ驛｢譎｢・ｽ・ｻ鬩幢ｽ｢隴擾ｽｴ郢晢ｽｻ/h3><p>鬮ｯ・ｷ陞ゅ・・ｽ・ｽ繝ｻ・ｱ鬯ｯ・ｮ繝ｻ・ｯ郢晢ｽｻ繝ｻ・ｺ鬩幢ｽ｢繝ｻ・ｧ郢晢ｽｻ繝ｻ・､鬩幢ｽ｢隴主・蜃ｽ繝ｻ雜｣・ｽ・ｦ鬩幢ｽ｢隴主・讓滄Δ譎｢・ｽ・ｻ鬮｣豈費ｽｼ螟ｲ・ｽ・ｽ繝ｻ・ｶ鬮ｫ・ｰ繝ｻ・ｨ郢晢ｽｻ繝ｻ・ｰ鬩搾ｽｵ繝ｻ・ｲ驕ｶ謫ｾ・ｽ・ｵ髫ｰ雋ｻ・ｽ・ｴ鬯ｩ蠅捺・繝ｻ・ｽ繝ｻ・ｺ鬯ｮ・ｫ繝ｻ・ｱ鬯ｮ・ｦ繝ｻ・ｪ驍ｵ・ｺ郢晢ｽｻ繝ｻ・ｹ隴趣ｽ｢繝ｻ・ｽ繝ｻ・ｩ鬩幢ｽ｢隴趣ｽ｢繝ｻ・ｽ繝ｻ・ｼ鬩幢ｽ｢隴主・讓溘・縺､ﾂ驕ｶ謫ｾ・ｽ・ｫ髯橸ｽｻ繝ｻ・ｮ鬯ｮ・ｫ隲ｷ蛹・ｽｽ・ｴ陷茨ｽｷ繝ｻ・ｽ繝ｻ・ｸ郢晢ｽｻ繝ｻ・ｭ鬩幢ｽ｢隴擾ｽｶ郢晢ｽｻ繝ｻ蜿悶・繝ｻ・ｹ隴取ｨ費ｽｺ繧托ｽｾ蜿門旭繝ｻ・ｸ繝ｻ・ｺ郢晢ｽｻ繝ｻ・ｮ鬮ｴ謇假ｽｽ・･郢晢ｽｻ繝ｻ・ｶ鬮ｫ・ｲ繝ｻ・ｷ髣包ｽｵ隴趣ｽ｢繝ｻ・ｽ陜｣・､繝ｻ・ｸ繝ｻ・ｺ郢晢ｽｻ繝ｻ・ｲ鬩搾ｽｵ繝ｻ・ｺ郢晢ｽｻ繝ｻ・ｨ鬯ｨ・ｾ繝ｻ・ｶ郢晢ｽｻ繝ｻ・ｮ鬩搾ｽｵ繝ｻ・ｺ郢晢ｽｻ繝ｻ・ｧ鬯ｩ蠅捺・繝ｻ・ｽ繝ｻ・ｺ鬯ｮ・ｫ繝ｻ・ｱ鬯ｮ・ｦ繝ｻ・ｪ驍ｵ・ｲ陜｣・､繝ｻ・ｸ繝ｻ・ｺ鬯ｮ・ｦ繝ｻ・ｪ驕ｶ謫ｾ・ｽ・ｪ鬩搾ｽｵ繝ｻ・ｺ髯ｷ・ｷ繝ｻ・ｶ繝ｻ縺､ﾂ驛｢譎｢・ｽ・ｻ/p></article><article class="dashboard-card"><h3>鬮ｯ・ｷ陞ゅ・・ｽ・ｽ繝ｻ・ｱ鬯ｯ・ｮ繝ｻ・ｯ郢晢ｽｻ繝ｻ・ｺ鬩幢ｽ｢繝ｻ・ｧ郢晢ｽｻ繝ｻ・､鬩幢ｽ｢隴主・蜃ｽ繝ｻ雜｣・ｽ・ｦ鬩幢ｽ｢隴取ｧｭﾎ鍋ｹ晢ｽｻ繝ｻ・ｩ郢晢ｽｻ繝ｻ・ｳ鬯ｩ閧ｴ蠕励・・ｽ繝ｻ・ｰ</h3><p>鬮ｫ・ｶ・つ髫ｲ蟶吶・繝ｻ・｡陜難ｽｼ・つ郢晢ｽｻ郢晢ｽｻ鬩励ｑ・ｽ・ｰ鬩搾ｽｵ繝ｻ・ｲ驕ｶ謫ｾ・ｽ・ｵ鬮｢・ｰ繝ｻ・ｳ鬮ｯ讒ｭ・代・・ｽ繝ｻ・ｨ鬮ｯ譏ｴ繝ｻ繝ｻ・ｽ繝ｻ・ｾ鬮ｯ貊ゑｽｽ・｢髫ｲ蟶ｷ閻ｸ・つ驛｢譎｢・ｽ・ｻ髫ｴ蟷｢・ｽ・ｪ鬯ｯ・ｨ繝ｻ・ｾ郢晢ｽｻ繝ｻ・｣鬩幢ｽ｢隴擾ｽｶ郢晢ｽｻ繝ｻ蜿悶・繝ｻ・ｹ隴取ｨ費ｽｺ繧托ｽｾ蜿門旭繝ｻ・ｹ繝ｻ・ｧ髯ｷ莉｣繝ｻ繝ｻ・ｽ繝ｻ・ｸ繝ｻ縺､ﾂ鬯ｨ・ｾ陋ｹ繝ｻ・ｽ・ｽ繝ｻ・ｻ鬯ｯ・ｮ繝ｻ・ｱ郢晢ｽｻ繝ｻ・｢鬩搾ｽｵ繝ｻ・ｺ郢晢ｽｻ繝ｻ・ｧ鬯ｩ蠅捺・繝ｻ・ｽ繝ｻ・ｺ鬯ｮ・ｫ繝ｻ・ｱ鬯ｮ・ｦ繝ｻ・ｪ郢晢ｽｻ繝ｻ・ｰ鬩搾ｽｵ繝ｻ・ｲ驕ｶ荳橸ｽ｣・ｺ髣懶ｽｽ鬩搾ｽｵ繝ｻ・ｺ郢晢ｽｻ繝ｻ・ｮ鬩搾ｽｵ繝ｻ・ｺ郢晢ｽｻ繝ｻ・ｾ鬩搾ｽｵ繝ｻ・ｺ郢晢ｽｻ繝ｻ・ｾ鬮ｫ・ｹ繝ｻ・ｺ郢晢ｽｻ繝ｻ・｡鬩搾ｽｵ繝ｻ・ｺ郢晢ｽｻ繝ｻ・ｮ鬯ｮ・ｯ繝ｻ・ｦ髫ｰ逍ｲ・ｺ・ｯ陷牙ｸ昴＠繝ｻ・ｺ郢晢ｽｻ繝ｻ・ｸ鬯ｯ・ｨ繝ｻ・ｾ郢晢ｽｻ繝ｻ・ｲ鬩幢ｽ｢繝ｻ・ｧ驕ｶ荳橸ｽ､・ｲ繝ｻ・ｽ驍・私・ｽ・ｫ繝ｻ・ｰ郢晢ｽｻ繝ｻ・ｳ鬮ｯ讖ｸ・ｽ・ｳ髯橸ｽ｢繝ｻ・ｹ驍ｵ・ｲ陜｣・､繝ｻ・ｸ繝ｻ・ｺ髯ｷ・ｷ繝ｻ・ｶ繝ｻ縺､ﾂ驛｢譎｢・ｽ・ｻ/p></article></div></section></main>    <footer class="site-footer">
       <div class="container">
         <div class="footer-panel">
           <div class="footer-brand">
-            <a class="brand" href="index.html" aria-label="LifeShield AI フッター">
+            <a class="brand" href="index.html" aria-label="LifeShield AI 鬩幢ｽ｢隴弱・・ｽ・ｼ隴∫浹證ｮﾎ斐・・ｧ郢晢ｽｻ繝ｻ・ｿ鬩幢ｽ｢隴趣ｽ｢繝ｻ・ｽ繝ｻ・ｼ">
               <span class="brand-mark" aria-hidden="true"></span>
               <span class="brand-name">
                 <strong>LifeShield AI</strong>
-                <span>個人向け AI セキュリティ</span>
+                <span>鬮ｯ蛹ｺ・ｺ・ｷ・つ繝ｻ・ｶ郢晢ｽｻ繝ｻ・ｺ郢晢ｽｻ繝ｻ・ｺ鬮ｯ・ｷ繝ｻ・ｷ髣比ｼ夲ｽｽ・｣郢晢ｽｻ繝ｻ・ｰ AI 鬩幢ｽ｢繝ｻ・ｧ郢晢ｽｻ繝ｻ・ｻ鬩幢ｽ｢繝ｻ・ｧ郢晢ｽｻ繝ｻ・ｭ鬩幢ｽ｢隴趣ｽ｢繝ｻ・ｽ繝ｻ・･鬩幢ｽ｢隴趣ｽ｢繝ｻ・ｽ繝ｻ・ｪ鬩幢ｽ｢隴擾ｽｴ郢晢ｽｻ驍ｵ・ｺ郢晢ｽｻ/span>
               </span>
             </a>
-            <p>フィッシング、詐欺、不審メール、アカウント攻撃の兆候を検知し、個人のデジタル生活を見守る AI セキュリティサービスです。</p>
+            <p>鬩幢ｽ｢隴弱・・ｽ・ｼ隴∫ｵｶ隘夜ｩ幢ｽ｢隴擾ｽｴ郢晢ｽｻ驍ｵ・ｺ陷･謫ｾ・ｽ・ｹ隴趣ｽ｢繝ｻ・ｽ繝ｻ・ｳ鬩幢ｽ｢繝ｻ・ｧ郢晢ｽｻ繝ｻ・ｰ鬩搾ｽｵ繝ｻ・ｲ驕ｶ謫ｾ・ｽ・ｬ郢晢ｽｻ繝ｻ・ｩ髯ｷ驛∬か繝ｻ・ｽ繝ｻ・ｬ郢晢ｽｻ繝ｻ・ｺ鬩搾ｽｵ繝ｻ・ｲ驕ｶ謫ｾ・ｽ・ｽ郢晢ｽｻ繝ｻ・ｸ髫ｶ荳ｻ・･繝ｻ・ｽ・ｽ繝ｻ・ｯ郢晢ｽｻ繝ｻ・ｩ鬩幢ｽ｢隴趣ｽ｢繝ｻ・ｽ繝ｻ・｡鬩幢ｽ｢隴趣ｽ｢繝ｻ・ｽ繝ｻ・ｼ鬩幢ｽ｢隴趣ｽ｢繝ｻ・ｽ繝ｻ・ｫ鬩搾ｽｵ繝ｻ・ｲ驕ｶ荳橸ｽ｣・ｹ繝ｻ讓｣ﾎ斐・・ｧ郢晢ｽｻ繝ｻ・ｫ鬩幢ｽ｢繝ｻ・ｧ郢晢ｽｻ繝ｻ・ｦ鬩幢ｽ｢隴趣ｽ｢繝ｻ・ｽ繝ｻ・ｳ鬩幢ｽ｢隴惹ｹ暦ｽｲ・ｺ髯具ｽｻ繝ｻ・､鬮ｫ・ｰ繝ｻ・ｦ驛｢譎｢・ｽ・ｻ驛｢譎｢・ｽ・ｻ鬮ｯ・ｷ陋ｹ・ｻ郢晢ｽｻ繝ｻ縺､ﾂ髯ｷ・ｷ繝ｻ・ｶ郢晢ｽｻ陞ｳ螟ｲ・ｽ・ｮ・つ髫ｲ蟶吶・繝ｻ・｡陷･・ｲ繝ｻ・ｸ繝ｻ・ｺ髯ｷ莨夲ｽｽ・ｱ繝ｻ縺､ﾂ驕ｶ荵玲･難ｾつ髯区ｻゑｽｽ・ｶ郢晢ｽｻ繝ｻ・ｺ郢晢ｽｻ繝ｻ・ｺ鬩搾ｽｵ繝ｻ・ｺ郢晢ｽｻ繝ｻ・ｮ鬩幢ｽ｢隴擾ｽｴ郢晢ｽｻ驍ｵ・ｺ陞溘ｑ・ｽ・ｹ繝ｻ・ｧ郢晢ｽｻ繝ｻ・ｿ鬩幢ｽ｢隴趣ｽ｢繝ｻ・ｽ繝ｻ・ｫ鬯ｨ・ｾ陟・屮・ｽ・ｻ鬮ｮ・｣繝ｻ・ｽ繝ｻ・ｴ郢晢ｽｻ繝ｻ・ｻ鬩幢ｽ｢繝ｻ・ｧ髯橸ｽｳ陞滂ｽｲ繝ｻ・ｽ繝ｻ・ｦ髯ｷ・ｿ繝ｻ・･郢晢ｽｻ繝ｻ・ｮ髯具ｽｹ繝ｻ・ｻ郢晢ｽｻ郢晢ｽｻAI 鬩幢ｽ｢繝ｻ・ｧ郢晢ｽｻ繝ｻ・ｻ鬩幢ｽ｢繝ｻ・ｧ郢晢ｽｻ繝ｻ・ｭ鬩幢ｽ｢隴趣ｽ｢繝ｻ・ｽ繝ｻ・･鬩幢ｽ｢隴趣ｽ｢繝ｻ・ｽ繝ｻ・ｪ鬩幢ｽ｢隴擾ｽｴ郢晢ｽｻ驍ｵ・ｺ郢晢ｽｻ繝ｻ・ｹ繝ｻ・ｧ郢晢ｽｻ繝ｻ・ｵ鬩幢ｽ｢隴趣ｽ｢繝ｻ・ｽ繝ｻ・ｼ鬩幢ｽ｢隴寂或・ｾ・ｭ驍ｵ・ｺ陝ｶ・ｷ繝ｻ・ｸ繝ｻ・ｺ郢晢ｽｻ繝ｻ・ｧ鬩搾ｽｵ繝ｻ・ｺ髯ｷ・ｷ繝ｻ・ｶ繝ｻ縺､ﾂ驛｢譎｢・ｽ・ｻ/p>
           </div>
           <div class="footer-links">
-            <a href="concept.html">サービス</a>
-            <a href="features.html">機能紹介</a>
-            <a href="pricing.html">料金</a>
-            <a href="support.html#faq">よくある質問</a>
-          </div>
-          <div class="footer-links">
-            <a href="dashboard-preview.html">ダッシュボード紹介</a>
-            <a href="news.html">お知らせ</a>
-            <a href="support.html">サポート</a>
-            <a href="contact.html">お問い合わせ</a>
-          </div>
-          <div class="footer-meta">© 2026 LifeShield AI</div>
+  <a href="index.html">ホーム</a>
+  <a href="concept.html">サービス</a>
+  <a href="features.html">機能紹介</a>
+  <a href="pricing.html">料金</a>
+  <a href="support.html#faq">よくある質問</a>
+</div>
+<div class="footer-links">
+  <a href="dashboard-preview.html">ダッシュボード紹介</a>
+  <a href="news.html">お知らせ</a>
+  <a href="support.html">サポート</a>
+  <a href="contact.html">お問い合わせ</a>
+</div>
+          <div class="footer-meta">郢晢ｽｻ郢ｧ謇假ｽｽ・ｽ繝ｻ・ｩ 2026 LifeShield AI</div>
         </div>
       </div>
     </footer></div><script src="../js/lifeshield-site.js"></script></body></html>
