@@ -20,7 +20,8 @@ public class AttachmentController {
 
     @PostMapping("/api/attachments")
     @PreAuthorize("hasRole('ADMIN')")
-    public ResponseEntity<AttachmentResponse> upload(@RequestParam Long securityEventId, @RequestParam MultipartFile file) {
+    public ResponseEntity<AttachmentResponse> upload(@RequestParam Long securityEventId,
+            @RequestParam MultipartFile file) {
         return ResponseEntity.ok(attachmentService.upload(securityEventId, file));
     }
 
