@@ -34,8 +34,8 @@ INSERT INTO reports (
     id, user_id, report_type, target_period_start, target_period_end, summary, generated_at, created_at, updated_at, deleted_at
 )
 VALUES
-    (1, 2, '週間レポート', DATE '2026-04-14', DATE '2026-04-20', '危険イベント2件を検知。メール由来のリスクが多く、注意喚起を実施。', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP, NULL),
-    (2, 3, '週間レポート', DATE '2026-04-14', DATE '2026-04-20', 'SNSなりすましと通信異常を各1件検知。設定見直しを推奨。', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP, NULL);
+    (1, 2, '週次レポート', DATE '2026-04-14', DATE '2026-04-20', '危険イベント2件を検知。メール由来のリスクが多く、注意喚起を実施。', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP, NULL),
+    (2, 3, '週次レポート', DATE '2026-04-14', DATE '2026-04-20', 'SNSなりすましと通信異常を各1件検知。設定見直しを推奨。', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP, NULL);
 
 INSERT INTO attachments (
     id, security_event_id, file_name, file_path, file_type, file_size, created_at, updated_at, deleted_at
@@ -53,3 +53,11 @@ VALUES
     (3, 3, 3, '危険イベント通知', 'hanako.sato@example.com', TIMESTAMP '2026-04-21 08:41:00', 'SENT', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP),
     (4, 3, 4, '危険イベント通知', 'hanako.sato@example.com', TIMESTAMP '2026-04-21 19:06:00', 'SENT', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP),
     (5, 2, 5, '危険イベント通知', 'taro.yamada@example.com', TIMESTAMP '2026-04-22 13:21:00', 'SENT', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP);
+
+ALTER TABLE users ALTER COLUMN id RESTART WITH 4;
+ALTER TABLE event_categories ALTER COLUMN id RESTART WITH 6;
+ALTER TABLE monitoring_settings ALTER COLUMN id RESTART WITH 4;
+ALTER TABLE security_events ALTER COLUMN id RESTART WITH 6;
+ALTER TABLE reports ALTER COLUMN id RESTART WITH 3;
+ALTER TABLE attachments ALTER COLUMN id RESTART WITH 3;
+ALTER TABLE email_notifications ALTER COLUMN id RESTART WITH 6;
