@@ -1,0 +1,10 @@
+.git
+.gitignore
+target/
+uploads/
+lifeshield-ai/
+docs/
+impl/
+css/
+js/
+*.md
