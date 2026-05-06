@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="LifeShield AI のメール監視機能を試す管理画面です。">
+  <title>メール監視 | LifeShield AI</title>
+  <link rel="stylesheet" href="../css/lifeshield-ai-lp.css">
+</head>
+<body>
+  <a class="skip-link" href="#main-content">本文へ移動</a>
+  <div class="page-shell">
+    <header class="site-header" data-open="false">
+      <div class="container header-inner">
+        <div class="header-brand">
+          <button class="brand-menu-toggle" type="button" aria-label="サイトメニューを開く" aria-expanded="false" aria-controls="site-menu-panel">
+            <span class="brand-mark" aria-hidden="true"></span>
+          </button>
+          <a class="brand-home" href="index.html" aria-label="LifeShield AI トップページ">
+            <span class="brand-name">
+              <strong>LifeShield AI</strong>
+              <span>個人向け AI セキュリティ</span>
+            </span>
+          </a>
+        </div>
+        <nav class="site-nav" aria-label="サイトメニュー">
+          <div class="nav-dropdown-panel" id="site-menu-panel">
+            <a href="index.html">ホーム</a>
+            <a href="concept.html">サービス</a>
+            <a href="features.html">機能紹介</a>
+            <a href="email-monitoring.html" aria-current="page">メール監視</a>
+            <a href="pricing.html">料金</a>
+            <a href="support.html#faq">よくある質問</a>
+            <a href="dashboard-preview.html">ダッシュボード紹介</a>
+            <a href="news.html">お知らせ</a>
+            <a href="support.html">サポート</a>
+            <a href="contact.html">お問い合わせ</a>
+          </div>
+        </nav>
+        <div class="header-actions">
+          <button class="mobile-nav-toggle" type="button" aria-label="メニューを開く" aria-expanded="false">☰</button>
+          <a class="button button-primary" href="contact.html">無料で始める</a>
+        </div>
+      </div>
+    </header>
+
+    <main id="main-content">
+      <section class="section page-hero">
+        <div class="container section-header">
+          <span class="section-label">メール監視</span>
+          <h1>不審メールを判定する</h1>
+          <p>送信元、件名、本文、URLや添付の有無から、危険度を判定して危険イベントとして保存します。</p>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="container email-monitoring-layout">
+          <form class="contact-form email-monitoring-form" data-api-base="http://localhost:8080" novalidate>
+            <div class="form-field">
+              <label for="senderEmail">送信元メールアドレス</label>
+              <input class="form-input" id="senderEmail" name="senderEmail" type="email" placeholder="notice@example.com" required>
+            </div>
+            <div class="form-field">
+              <label for="subject">件名</label>
+              <input class="form-input" id="subject" name="subject" type="text" maxlength="120" placeholder="至急 アカウント停止のお知らせ" required>
+            </div>
+            <div class="form-field">
+              <label for="body">本文</label>
+              <textarea class="form-textarea" id="body" name="body" maxlength="2000" placeholder="メール本文を入力してください" required></textarea>
+            </div>
+            <label class="check-row">
+              <input type="checkbox" name="hasUrl">
+              <span>本文にURLが含まれている</span>
+            </label>
+            <label class="check-row">
+              <input type="checkbox" name="hasAttachment">
+              <span>添付ファイルがある</span>
+            </label>
+            <div class="form-actions">
+              <button class="button button-primary" type="submit">判定する</button>
+              <p class="form-status email-monitoring-status" role="status" aria-live="polite"></p>
+            </div>
+          </form>
+
+          <aside class="dashboard-card email-monitoring-result" aria-live="polite">
+            <h2>判定結果</h2>
+            <p>フォームを送信すると、ここに危険度、理由、推奨対応が表示されます。</p>
+            <dl class="result-list">
+              <div>
+                <dt>危険度</dt>
+                <dd data-result-risk>未判定</dd>
+              </div>
+              <div>
+                <dt>理由</dt>
+                <dd data-result-reason>まだ判定していません。</dd>
+              </div>
+              <div>
+                <dt>推奨対応</dt>
+                <dd data-result-recommendation>入力後に表示されます。</dd>
+              </div>
+              <div>
+                <dt>保存</dt>
+                <dd data-result-event>未保存</dd>
+              </div>
+            </dl>
+          </aside>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container">
+        <div class="footer-panel">
+          <div class="footer-brand">
+            <a class="brand" href="index.html" aria-label="LifeShield AI フッター">
+              <span class="brand-mark" aria-hidden="true"></span>
+              <span class="brand-name">
+                <strong>LifeShield AI</strong>
+                <span>個人向け AI セキュリティ</span>
+              </span>
+            </a>
+            <p>フィッシング、詐欺、不審メール、アカウント攻撃の兆候を検知し、個人のデジタル生活を見守る AI セキュリティサービスです。</p>
+          </div>
+          <div class="footer-links">
+            <a href="index.html">ホーム</a>
+            <a href="concept.html">サービス</a>
+            <a href="features.html">機能紹介</a>
+            <a href="email-monitoring.html">メール監視</a>
+            <a href="pricing.html">料金</a>
+            <a href="support.html#faq">よくある質問</a>
+          </div>
+          <div class="footer-links">
+            <a href="dashboard-preview.html">ダッシュボード紹介</a>
+            <a href="news.html">お知らせ</a>
+            <a href="support.html">サポート</a>
+            <a href="contact.html">お問い合わせ</a>
+          </div>
+          <div class="footer-meta">© 2026 LifeShield AI</div>
+        </div>
+      </div>
+    </footer>
+  </div>
+  <script src="../js/lifeshield-site.js"></script>
+</body>
+</html>
