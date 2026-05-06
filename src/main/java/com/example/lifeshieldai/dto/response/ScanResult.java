@@ -1,4 +1,4 @@
-package com.example.lifeshieldai.dto;
+package com.example.lifeshieldai.dto.response;
 
 public class ScanResult {
 
