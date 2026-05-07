@@ -935,6 +935,95 @@ button { cursor: pointer; }
   flex: 1 1 280px;
 }
 .form-status.is-visible { display: block; }
+.form-status.is-error {
+  background: #fff1ed;
+  border-color: #f1b3a5;
+  color: #b93b25;
+}
+
+.auth-panel {
+  display: grid;
+  gap: 18px;
+  max-width: 720px;
+  margin: 0 auto;
+}
+
+.login-hint {
+  color: var(--color-text);
+  font-weight: 700;
+}
+
+.admin-actions {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.session-banner {
+  margin-bottom: 24px;
+  padding: 18px 20px;
+  border-radius: var(--radius-card);
+  border: 1px solid rgba(47, 93, 140, 0.14);
+  background: rgba(255, 250, 242, 0.72);
+  color: var(--color-text);
+  box-shadow: var(--shadow-card);
+}
+
+.summary-number {
+  display: block;
+  margin-top: 10px;
+  color: var(--color-primary);
+  font-size: clamp(2rem, 6vw, 3.6rem);
+  font-weight: 900;
+  line-height: 1;
+}
+
+.table-wrap {
+  overflow-x: auto;
+  border-radius: var(--radius-card);
+  border: 1px solid rgba(47, 93, 140, 0.12);
+  background: rgba(255, 250, 242, 0.74);
+  box-shadow: var(--shadow-card);
+}
+
+.app-table {
+  width: 100%;
+  border-collapse: collapse;
+  min-width: 760px;
+  color: var(--color-text);
+}
+
+.app-table th,
+.app-table td {
+  padding: 14px 16px;
+  border-bottom: 1px solid rgba(47, 93, 140, 0.1);
+  text-align: left;
+  vertical-align: top;
+}
+
+.app-table th {
+  background: rgba(255, 255, 255, 0.5);
+  color: var(--color-primary-deep);
+  font-weight: 900;
+}
+
+.app-table tbody tr:nth-child(even) {
+  background: rgba(255, 255, 255, 0.32);
+}
+
+.risk-badge {
+  display: inline-flex;
+  min-width: 2.5em;
+  justify-content: center;
+  padding: 4px 10px;
+  border-radius: 999px;
+  font-weight: 900;
+}
+
+.risk-high { background: #ffe7df; color: #d94f38; }
+.risk-medium { background: #fff3d8; color: #9a6a00; }
+.risk-low { background: #e9f8f2; color: #287f5c; }
 
 .contact-list {
   display: grid;

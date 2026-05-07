@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="LifeShield AI 管理ダッシュボードです。">
+  <title>管理ダッシュボード | LifeShield AI</title>
+  <link rel="stylesheet" href="../css/lifeshield-ai-lp.css">
+</head>
+<body>
+  <a class="skip-link" href="#main-content">本文へ移動</a>
+  <div class="page-shell">
+    <header class="site-header" data-open="false">
+      <div class="container header-inner">
+        <div class="header-brand">
+          <button class="brand-menu-toggle" type="button" aria-label="サイトメニューを開く" aria-expanded="false" aria-controls="site-menu-panel"><span class="brand-mark" aria-hidden="true"></span></button>
+          <a class="brand-home" href="index.html" aria-label="LifeShield AI トップページ"><span class="brand-name"><strong>LifeShield AI</strong><span>個人向け AI セキュリティ</span></span></a>
+        </div>
+        <nav class="site-nav" aria-label="サイトメニュー">
+          <div class="nav-dropdown-panel" id="site-menu-panel">
+            <a href="index.html">ホーム</a>
+            <a href="login.html">ログイン</a>
+            <a href="admin-dashboard.html" aria-current="page">管理ダッシュボード</a>
+            <a href="email-monitoring.html">メール監視</a>
+            <a href="security-events.html">危険イベント一覧</a>
+          </div>
+        </nav>
+        <div class="header-actions">
+          <button class="mobile-nav-toggle" type="button" aria-label="メニューを開く" aria-expanded="false">☰</button>
+          <button class="button button-secondary" type="button" data-logout>ログアウト</button>
+        </div>
+      </div>
+    </header>
+
+    <main id="main-content">
+      <section class="section page-hero">
+        <div class="container section-header">
+          <span class="section-label">管理画面</span>
+          <h1>管理ダッシュボード</h1>
+          <p>メール監視の実行、危険イベント一覧、検知状況の確認をここから行います。</p>
+        </div>
+      </section>
+
+      <section class="section" data-require-session>
+        <div class="container">
+          <div class="session-banner"><p data-session-status>ログイン状態を確認しています。</p></div>
+          <div class="admin-actions">
+            <a class="button button-primary" href="email-monitoring.html">メール監視を実行</a>
+            <a class="button button-secondary" href="security-events.html">危険イベント一覧を見る</a>
+          </div>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="container grid-3" data-dashboard-summary>
+          <article class="dashboard-card">
+            <h3>危険イベント</h3>
+            <span class="summary-number" data-total-events>--</span>
+            <p>保存済みの危険イベント総数です。</p>
+          </article>
+          <article class="dashboard-card">
+            <h3>高リスク</h3>
+            <span class="summary-number" data-high-risk>--</span>
+            <p>特に注意が必要なイベント数です。</p>
+          </article>
+          <article class="dashboard-card">
+            <h3>メール関連</h3>
+            <span class="summary-number" data-mail-events>--</span>
+            <p>メール監視で扱うイベント数です。</p>
+          </article>
+          <p class="form-status is-visible" data-dashboard-message>APIから集計を取得しています。</p>
+        </div>
+      </section>
+    </main>
+  </div>
+  <script src="../js/lifeshield-site.js"></script>
+</body>
+</html>

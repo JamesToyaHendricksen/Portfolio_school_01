@@ -31,13 +31,13 @@ public class SessionServiceImpl implements SessionService {
         session.setAttribute(HttpSessionSecurityContextRepository.SPRING_SECURITY_CONTEXT_KEY, context);
 
         AuthenticatedUser user = (AuthenticatedUser) authentication.getPrincipal();
-        return LoginResponse.builder()
-                .id(user.getId())
-                .name(user.getName())
-                .email(user.getUsername())
-                .role(user.getRole())
-                .message("ログインしました")
-                .build();
+        return toResponse(user, "ログインしました");
+    }
+
+    @Override
+    public LoginResponse current(Authentication authentication) {
+        AuthenticatedUser user = (AuthenticatedUser) authentication.getPrincipal();
+        return toResponse(user, "ログイン中です");
     }
 
     @Override
@@ -47,5 +47,15 @@ public class SessionServiceImpl implements SessionService {
             session.invalidate();
         }
         SecurityContextHolder.clearContext();
+    }
+
+    private LoginResponse toResponse(AuthenticatedUser user, String message) {
+        return LoginResponse.builder()
+                .id(user.getId())
+                .name(user.getName())
+                .email(user.getUsername())
+                .role(user.getRole())
+                .message(message)
+                .build();
     }
 }

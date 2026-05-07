@@ -6,6 +6,7 @@ import static org.mockito.Mockito.when;
 import static org.springframework.security.test.web.servlet.request.SecurityMockMvcRequestPostProcessors.csrf;
 import static org.springframework.security.test.web.servlet.request.SecurityMockMvcRequestPostProcessors.user;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.delete;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
@@ -15,10 +16,10 @@ import com.example.lifeshieldai.service.SessionService;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
+import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
 import org.springframework.http.MediaType;
 import org.springframework.security.authentication.BadCredentialsException;
 import org.springframework.test.context.bean.override.mockito.MockitoBean;
-import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
 import org.springframework.test.web.servlet.MockMvc;
 
 @WebMvcTest(SessionController.class)
@@ -53,6 +54,23 @@ class SessionControllerTest {
                 .andExpect(jsonPath("$.email").value("admin@lifeshield.ai"))
                 .andExpect(jsonPath("$.role").value("ADMIN"))
                 .andExpect(jsonPath("$.message").value("ログインしました"));
+    }
+
+    @Test
+    void current_returnsCurrentUser_whenAuthenticated() throws Exception {
+        when(sessionService.current(any())).thenReturn(LoginResponse.builder()
+                .id(1L)
+                .name("管理者ユーザー")
+                .email("admin@lifeshield.ai")
+                .role("ADMIN")
+                .message("ログイン中です")
+                .build());
+
+        mockMvc.perform(get("/api/sessions/current")
+                        .with(user("admin@lifeshield.ai").roles("ADMIN")))
+                .andExpect(status().isOk())
+                .andExpect(jsonPath("$.email").value("admin@lifeshield.ai"))
+                .andExpect(jsonPath("$.message").value("ログイン中です"));
     }
 
     @Test

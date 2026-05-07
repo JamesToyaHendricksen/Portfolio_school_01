@@ -1,8 +1,8 @@
 INSERT INTO users (id, name, email, password_hash, role, created_at, updated_at, deleted_at)
 VALUES
-  (1, '管理者ユーザー', 'admin@lifeshield.ai', '$2a$10$7EqJtq98hPqEX7fNZaFWoOhiB6Lr7sRKqGZo4PMBVXsfS5aXoaZy.', 'ADMIN', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP, NULL),
-  (2, '山田 太郎', 'taro.yamada@example.com', '$2a$10$7EqJtq98hPqEX7fNZaFWoOhiB6Lr7sRKqGZo4PMBVXsfS5aXoaZy.', 'USER', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP, NULL),
-  (3, '佐藤 花子', 'hanako.sato@example.com', '$2a$10$7EqJtq98hPqEX7fNZaFWoOhiB6Lr7sRKqGZo4PMBVXsfS5aXoaZy.', 'USER', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP, NULL);
+  (1, '管理者ユーザー', 'admin@lifeshield.ai', '$2a$10$nSqfbBxFYu.zTwt28sfIMef7rCl1xIU0eRw5OcR6UEAsqfoxoiB.m', 'ADMIN', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP, NULL),
+  (2, '山田 太郎', 'taro.yamada@example.com', '$2a$10$nSqfbBxFYu.zTwt28sfIMef7rCl1xIU0eRw5OcR6UEAsqfoxoiB.m', 'USER', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP, NULL),
+  (3, '佐藤 花子', 'hanako.sato@example.com', '$2a$10$nSqfbBxFYu.zTwt28sfIMef7rCl1xIU0eRw5OcR6UEAsqfoxoiB.m', 'USER', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP, NULL);
 
 INSERT INTO event_categories (id, category_code, category_name, description, sort_order, created_at, updated_at)
 VALUES

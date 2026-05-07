@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="LifeShield AI 管理画面のログインページです。">
+  <title>ログイン | LifeShield AI</title>
+  <link rel="stylesheet" href="../css/lifeshield-ai-lp.css">
+</head>
+<body>
+  <a class="skip-link" href="#main-content">本文へ移動</a>
+  <div class="page-shell">
+    <header class="site-header" data-open="false">
+      <div class="container header-inner">
+        <div class="header-brand">
+          <button class="brand-menu-toggle" type="button" aria-label="サイトメニューを開く" aria-expanded="false" aria-controls="site-menu-panel"><span class="brand-mark" aria-hidden="true"></span></button>
+          <a class="brand-home" href="index.html" aria-label="LifeShield AI トップページ"><span class="brand-name"><strong>LifeShield AI</strong><span>個人向け AI セキュリティ</span></span></a>
+        </div>
+        <nav class="site-nav" aria-label="サイトメニュー">
+          <div class="nav-dropdown-panel" id="site-menu-panel">
+            <a href="index.html">ホーム</a>
+            <a href="login.html" aria-current="page">ログイン</a>
+            <a href="admin-dashboard.html">管理ダッシュボード</a>
+            <a href="email-monitoring.html">メール監視</a>
+            <a href="security-events.html">危険イベント一覧</a>
+          </div>
+        </nav>
+        <div class="header-actions">
+          <button class="mobile-nav-toggle" type="button" aria-label="メニューを開く" aria-expanded="false">☰</button>
+          <a class="button button-primary" href="index.html">サイトへ戻る</a>
+        </div>
+      </div>
+    </header>
+
+    <main id="main-content">
+      <section class="section page-hero hero-centered">
+        <div class="container section-header">
+          <span class="section-label">管理画面</span>
+          <h1>ログイン</h1>
+          <p>メール監視や危険イベント一覧を確認するために、管理システムへログインします。</p>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="container auth-panel">
+          <form class="contact-form login-form" novalidate>
+            <p class="login-hint">動作確認用: admin@lifeshield.ai / password</p>
+            <div class="form-field">
+              <label for="email">メールアドレス</label>
+              <input class="form-input" id="email" name="email" type="email" value="admin@lifeshield.ai" required>
+            </div>
+            <div class="form-field">
+              <label for="password">パスワード</label>
+              <input class="form-input" id="password" name="password" type="password" value="password" required>
+            </div>
+            <div class="form-actions">
+              <button class="button button-primary" type="submit">ログインする</button>
+              <p class="form-status" role="status" aria-live="polite"></p>
+            </div>
+          </form>
+        </div>
+      </section>
+    </main>
+  </div>
+  <script src="../js/lifeshield-site.js"></script>
+</body>
+</html>

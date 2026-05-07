@@ -40,6 +40,7 @@ public class SecurityConfig {
                 .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.IF_REQUIRED))
                 .authorizeHttpRequests(auth -> auth
                         .requestMatchers("/h2-console/**").permitAll()
+                        .requestMatchers("/api/csrf").permitAll()
                         .requestMatchers("/api/sessions").permitAll()
                         .anyRequest().authenticated())
                 .authenticationProvider(authenticationProvider())
@@ -57,11 +58,14 @@ public class SecurityConfig {
         config.setAllowedOrigins(List.of(
                 "https://jamestoyahendricksen.github.io",
                 "http://localhost:8080",
+                "http://localhost:3000",
+                "http://127.0.0.1:3000",
                 "http://localhost:5500",
                 "http://127.0.0.1:5500",
-                "http://localhost"
+                "http://localhost",
+                "null"
         ));
-        config.setAllowedMethods(List.of("GET", "POST", "PUT", "DELETE", "OPTIONS"));
+        config.setAllowedMethods(List.of("GET", "POST", "PUT", "PATCH", "DELETE", "OPTIONS"));
         config.setAllowedHeaders(List.of("*"));
         config.setAllowCredentials(true);
         config.setMaxAge(3600L);
