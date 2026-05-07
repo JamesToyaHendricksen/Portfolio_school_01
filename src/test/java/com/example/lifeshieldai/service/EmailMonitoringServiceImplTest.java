@@ -49,8 +49,8 @@ class EmailMonitoringServiceImplTest {
                 .status("未対応")
                 .channel("メール")
                 .detectedAt(LocalDateTime.now())
-                .reason("不審な文言: 至急、URLあり を検知しました。")
-                .recommendation("リンクや添付ファイルを開かず、送信元を別経路で確認してください。")
+                .reason("疑うべき項目: 文面キーワード「至急」、本文にURLが含まれている。")
+                .recommendation("リンクや添付ファイルは開かず、送信元の正当性を別経路で確認してください。")
                 .build());
 
         var response = service.check(request, user);
@@ -73,8 +73,8 @@ class EmailMonitoringServiceImplTest {
         AuthenticatedUser user = new AuthenticatedUser(2L, "山田 太郎", "taro.yamada@example.com", "password", "USER");
         EmailMonitoringCheckRequest request = new EmailMonitoringCheckRequest();
         request.setSenderEmail("friend@example.com");
-        request.setSubject("週末の予定");
-        request.setBody("次の予定を確認しましょう。");
+        request.setSubject("来月の予定");
+        request.setBody("次の予定を確認します。");
 
         org.mockito.Mockito.doAnswer(invocation -> {
             SecurityEvent event = invocation.getArgument(0);
