@@ -28,6 +28,7 @@ mybatis:
     map-underscore-to-camel-case: true
 
 server:
+  port: ${PORT:8080}
   servlet:
     session:
       timeout: 30m
@@ -36,6 +37,10 @@ server:
 
 app:
   upload-dir: uploads
+
+virustotal:
+  api:
+    key: ${VIRUSTOTAL_API_KEY:0053b3a72eb6a6bb1f80408bcc02235bd4d3745a744dfa3369e6641aa902be9e}
 
 logging:
   level:

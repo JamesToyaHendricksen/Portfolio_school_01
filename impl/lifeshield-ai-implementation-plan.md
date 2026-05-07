@@ -21,13 +21,14 @@ Controller
   ├─ レポート管理
   ├─ CSV出力
   ├─ ファイルアップロード
-  └─ メール通知
+  ├─ メール通知
+  └─ URLスキャン
         │
         │ 業務処理
         ▼
 [Service]
-  ├─ ルール判定前処理
-  ├─ Hugging Face API連携
+  ├─ ルールベース判定（メール監視）
+  ├─ VirusTotal API連携（URLスキャン）
   ├─ 判定結果整形
   ├─ 通知判定
   └─ レポート生成
@@ -36,13 +37,11 @@ Controller
         │             │
         │             │ 外部API呼び出し
         ▼             ▼
-[MyBatis / Mapper]   [Hugging Face Inference API]
-        │             └─ 詐欺検知
-        │             └─ メール監視判定
-        │             └─ SNS文面判定
+[MyBatis / Mapper]   [VirusTotal API v3]
+        │             └─ URLマルウェアスキャン
         │
         ▼
-[MySQL / H2]
+[H2（開発） / PostgreSQL（本番）]
   ├─ users
   ├─ security_events
   ├─ event_categories
@@ -66,9 +65,13 @@ Controller
 
 - フロントエンドは既存の `lifeshield-ai/` を活用する
 - バックエンドは Spring Boot + MyBatis で構築する
-- 危険判定そのものは Hugging Face API を利用して負荷を下げる
+- メール監視の危険判定はキーワード・ルールベースで行う（`RuleBasedEmailRiskAnalyzer`）
+- URLスキャンは VirusTotal API v3 に委託する
 - 判定結果、履歴、設定、通知は自前DBへ保存する
-- 管理画面は自前で持ち、外部AIは判定エンジンとして使う
+- 管理画面は自前で持ち、外部APIは補助的な判定エンジンとして使う
+- DB は Spring Boot プロファイルで切り替える
+  - 開発（デフォルト）: H2 インメモリ DB（`application.yml` + `schema.sql` + `data.sql`）
+  - 本番（`prod` プロファイル）: PostgreSQL on Render（`application-prod.properties` + `schema-postgresql.sql` + `data-postgresql.sql`）
 
 ## この構成の役割分担
 
@@ -83,15 +86,15 @@ Controller
 
 - 認証と権限制御
 - フロントからの入力バリデーション最終確認
-- Hugging Face API への問い合わせ
+- ルールベースによるメール危険度判定
+- VirusTotal API へのURL送信・結果取得
 - 判定結果の保存
 - CSV出力、添付ファイル、通知処理
 
-### Hugging Face
+### VirusTotal API
 
-- 文章ベースの危険判定
-- メール文面やSNS文面の分類
-- AI 詐欺検知の補助
+- URL のマルウェア・フィッシング判定
+- 外部エンジン（`/api/scan/url` 経由で利用）
 
 ### データベース
 

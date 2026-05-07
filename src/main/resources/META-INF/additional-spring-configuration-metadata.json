@@ -1,0 +1,9 @@
+{
+  "properties": [
+    {
+      "name": "virustotal.api.key",
+      "type": "java.lang.String",
+      "description": "VirusTotal API v3 の認証キー。環境変数 VIRUSTOTAL_API_KEY で上書き可能。"
+    }
+  ]
+}

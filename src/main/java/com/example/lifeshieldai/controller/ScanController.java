@@ -3,13 +3,15 @@ package com.example.lifeshieldai.controller;
 import com.example.lifeshieldai.dto.response.ScanResult;
 import com.example.lifeshieldai.service.VirusTotalService;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
 import java.util.Map;
 
 @RestController
 @RequestMapping("/api/scan")
-@CrossOrigin(origins = "*")
 public class ScanController {
 
     private final VirusTotalService virusTotalService;
