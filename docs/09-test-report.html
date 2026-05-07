@@ -161,6 +161,20 @@
         </table>
 
           </div>
+
+          <div class="fill-block completed">
+            <div class="fill-label">Render公開後の最終確認結果 <span class="required">必須</span></div>
+            <div class="fill-content">
+              <p>実施日: 2026-05-07</p>
+              <p>確認環境: GitHub Pages（フロントエンド） + Render（Spring Boot API）</p>
+              <p>確認項目と結果:</p>
+              <p>・ログイン: 成功（認証状態の表示も正常）</p>
+              <p>・メール監視の判定実行: 成功（高リスク判定を表示）</p>
+              <p>・イベントID表示: 成功</p>
+              <p>・危険イベント一覧への反映: 成功（直前イベントが先頭付近に追加）</p>
+              <p>・既存機能回帰: 主要APIのテスト実行で異常なし（`mvn test` 実施）</p>
+            </div>
+          </div>
         </section>
 
         <section class="section" id="sec4">
