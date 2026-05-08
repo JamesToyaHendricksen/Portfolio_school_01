@@ -200,6 +200,7 @@ Toya Toyoda
 - 例: `https://jamestoyahendricksen.github.io/Portfolio_school_01/lifeshield-ai/login.html?mode=demo`
 - デモモードでは、ログイン / メール監視判定 / 危険イベント一覧の一連動作をブラウザ内データで再現します。
 - `?mode=live` で通常モードに戻せます。
+- 本番ではデモ用資格情報は使用せず、初回パスワード変更とMFAを必須化する設計です。
 
 ### Render を常時稼働にする手順（推奨）
 1. Render ダッシュボードで `lifeshield-ai-backend` を開く
