@@ -202,6 +202,14 @@ Toya Toyoda
 - `?mode=live` で通常モードに戻せます。
 - 本番ではデモ用資格情報は使用せず、初回パスワード変更とMFAを必須化する設計です。
 
+### デモ用ログイン情報（面接・確認用）
+- ログイン画面: `https://jamestoyahendricksen.github.io/Portfolio_school_01/lifeshield-ai/login.html`
+- メールアドレス（管理者）: `admin@lifeshield.ai`
+- メールアドレス（一般1）: `taro.yamada@example.com`
+- メールアドレス（一般2）: `hanako.sato@example.com`
+- パスワード（共通）: `password`
+- 補足: 資格情報を変更した場合は `src/main/resources/data.sql` と `src/main/resources/data-postgresql.sql` を同時に更新してください。
+
 ### Render を常時稼働にする手順（推奨）
 1. Render ダッシュボードで `lifeshield-ai-backend` を開く
 2. `Settings` → `Instance Type` で無料プラン以外へ変更
